@@ -1,0 +1,59 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pickup {
+  background-color: #eee;
+  border-top: solid 2px #32344c;
+  border-bottom: solid 1px #32344c;
+}
+
+.main_background {
+  // width: 89%;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 10px;
+
+}
+.main_article {
+
+    padding-top: 15px;
+    padding-bottom: 2px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.article1 {
+
+}
+
+.article2 {
+  // float: left;
+}
+.text-wrapper{
+  width: 320px;
+}
+
+.main_img {
+    // width: 320px;
+    // height: 192px;
+    // background-position: center;
+    // background-size: cover;
+}
+
+.youtube_article {
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  // float: right;
+}
+.title-color {
+  color: #3b4650;
+}
+.gray-text {
+  color: #999;
+}

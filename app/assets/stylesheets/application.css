@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+ /* コンポーネント */
+
+ .pt10 {
+   padding-top: 10px;
+ }
+ .pt20 {
+   padding-top: 20px;
+ }
+ .pt30 {
+   padding-top: 30px;
+ }
+ .pt40 {
+   padding-top: 40px;
+ }
+
+ .pt50 {
+   padding-top: 50px;
+ }
+
+ .pb50 {
+   padding-bottom: 50px;
+ }
+
+  .navbar {
+    margin-bottom: 0px !important;
+  }
+
+  .navbar-default {
+      background-color: #ffffff;
+      border-color: #e7e7e7;
+  }
+
+
+
+ /* footer */
+ .bg-footer1 {
+   border-top: solid 2px #1c233e;
+   color: #666;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   /* background: linear-gradient(#eceef1,#a3a6b3); */
+ }
+
+ .bg-footer2 {
+   color: white;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   background-color: #c5134c !important;
+ }

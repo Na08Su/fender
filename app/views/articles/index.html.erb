@@ -1,0 +1,64 @@
+<section class="pickup">
+  <div class="container pt50 pb50">
+    <div class="main_wrraper">
+      <div class="col-sm-4 col-xs-12">
+        <div class="main_background">
+          <p>記事1</p>
+          <!-- 背景画像として扱うこともできることを考慮する -->
+          <!-- <div class="eyecatch_instagram" style="background-image:url('https://www.instagram.com/p/BlncAuOAAP2/media/?size=m')"> </div> -->
+          <%= image_tag @article_last1.picture.url, :size => "320x192", class: 'main_img' if @article_last1.picture? %>
+          <h4 class="title-color"><%= @article_last1.title.truncate(30)%></h4>
+          <p class="gray-text"><%= @article_last1.body.truncate(60)%></p>
+          <p class="gray-text">公式ライター</p>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="main_background">
+          <p>記事2</p>
+          <%= image_tag @article_last2.picture.url, :size => "320x192", class: 'main_img' if @article_last2.picture? %>
+          <h4 class="title-color"><%= @article_last2.title.truncate(30) %></h4>
+          <p class="gray-text"><%= @article_last2.body.truncate(60) %></p>
+          <p class="gray-text">Liam gallager</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 col-xs-12 youtube_article right">
+      <p>動画記事3</p>
+      <iframe width="270" height="152" src="https://www.youtube.com/embed/t-YNqAoilZc?controls=0&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;modestbranding=1&amp;mute=0&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>
+      <!-- <div class="ytp-cued-thumbnail-overlay-image" style="background-image: url(&quot;https://i.ytimg.com/vi_webp/t-YNqAoilZc/hqdefault.webp&quot;);"></div> -->
+      <h4 class="title-color"><%= @article_youtube.title.truncate(30) %></h4>
+      <p class="gray-text"><%= @article_youtube.body.truncate(90) %></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3カラム -->
+<div class="main pt20">
+  <div class="col-sm-2 col-xs-12">
+    <p>おすすめ記事</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+  </div>
+
+  <div class="col-sm-6 col-xs-12">
+    <p>厳選記事</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+  </div>
+  <div class="col-sm-4 col-xs-12">
+    <p>ランキング</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+    <p>i</p>
+  </div>
+</div>
+
+<hr>
