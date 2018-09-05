@@ -2,6 +2,15 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+
+
+  # Include the Sprokets helpers for Rails 3.1+ asset pipeline compatibility:
+  # default画像周りでの設定includeなので、バグったら消して大丈夫
+  # include Sprockets::Helpers::RailsHelper
+  # include Sprockets::Helpers::IsolatedHelper
+#
+
+
   process resize_to_limit: [320, 192]
 
   # Choose what kind of storage to use for this uploader:
@@ -17,6 +26,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+
+  def default_url
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
