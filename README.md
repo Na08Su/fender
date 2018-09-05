@@ -1,6 +1,10 @@
 # README
 あとで読む
+ゲームメディア
 https://www.stockclip.net/notes/677
+
+キューレーションメディア一覧まとめ
+https://matome.naver.jp/odai/2141243734479187601
 
 ## 主要モデル
 
@@ -27,7 +31,7 @@ Article (コンテンツ記事)
 
 
 ## activeadminからスタートする
-→ userモデルは不要
+→ userモデルは現状不要
 
 * Ruby version
    2.5.1
@@ -52,13 +56,13 @@ Article (コンテンツ記事)
 
 
 # ハードル
-  0. ドメイン取得
-  1. 本番サーバーの比較検討
+  0. ドメイン取得                 done
+  1. 本番サーバーの比較検討(CONOHA) done
   2. SSLを行うか
   3. SEO対策
-  4. 誰でも管理しやすくする(admin)
+  4. 誰でも管理しやすくする(admin)← ckeditorを導入したため、ほぼクリア done
   5. 広告の設定
-  6. １記事につき、複数画像の投稿、レイアウト
+  6. １記事につき、複数画像の投稿、レイアウト← ckeditorを導入したため、ほぼクリア done
 
 
 # AWS 設定

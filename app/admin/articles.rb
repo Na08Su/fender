@@ -7,4 +7,10 @@ ActiveAdmin.register Article do
     permit_params :title, :body, :picture
   end
 
+  form do |f|
+    f.input :title
+    f.input :body, :as => :ckeditor
+    f.input :picture
+    f.submit
+  end
 end

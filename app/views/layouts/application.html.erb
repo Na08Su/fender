@@ -10,7 +10,11 @@
   </head>
 
   <body>
+    <div class="bar-top">
+      <div class="top-text">ゲーム攻略のアプ速だよ</div>
+    </div>
     <%= render 'layouts/header'  %>
+    <%= breadcrumbs :class => "pan", semantic: true %>
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% elsif alert %>

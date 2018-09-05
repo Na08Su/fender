@@ -25,16 +25,23 @@ $ cd centos6  $ 作業する場所
 meryみたいなmediaを作成
 
 0. bootstrap3 導入         done
-1. admin画面
+1. admin画面               done
 2. スマホとPCで分ける
 3. サーバーとドメイン
-4. 画像サーバー設置(S3)
+4. 画像サーバー設置(S3) done
 画像関連参考
 ## http://www.eggineer.info/entry/2018/04/01/CarrierWave%E3%81%A7%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%97%E3%81%9F%E7%94%BB%E5%83%8F%E3%82%92%E6%9C%AC%E7%95%AA%E7%92%B0%E5%A2%83%E3%81%A7S3%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%99
 
 ---- +α -----
 
 スワイプで記事を削除 ー＞ ユーザーが不要な情報を見なくて済む
+
+## TODO 9/4
+
+  1.topページの記事のリンク化 done
+  2. showページ作成 + レイアウト
+  3. スマホ対応
+  4. サーバー設定
 
 
 ## TODO 8/29
@@ -43,9 +50,9 @@ meryみたいなmediaを作成
 ・gitリポジトリ作成 done
 ・bootstrap導入   done
 ・スマホとPCのデザイン切り分け設定 done
-・admin画面
-・articleモデルを作成する　＋ CRUD
-・ 画像サーバー(S3導入)
+・admin画面  Done
+・articleモデルを作成する　＋ CRUD done
+・ 画像サーバー(S3導入)            done
 
 
 ## TODO 8/30

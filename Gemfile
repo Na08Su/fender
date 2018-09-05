@@ -50,8 +50,17 @@ gem 'activeadmin'  # admin画面
 # https://rails-school.net/active-admin/
 # https://qiita.com/haneri/items/d9d8d2dfa239a7f2461d
 
+# 画像周り
+
 gem 'carrierwave'
 gem 'mini_magick'
+
+### editor #####
+# http://clc.gonna.jp/2017/05/activeadmin%E3%81%ABckeditor%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B/
+gem 'ckeditor'
+
+### SEO #####
+gem "gretel" 
 
 
 # Reduces boot times through caching; required in config/boot.rb
