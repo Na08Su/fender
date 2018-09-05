@@ -14,5 +14,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+
+    @osusume_articles = Article.last(5) # おすすめのロジック
+    @ranking_articles = Article.last(5) # ランキングのロジック
+
   end
 end

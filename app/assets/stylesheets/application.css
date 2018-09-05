@@ -15,51 +15,110 @@
  */
 
  /* コンポーネント */
+.mini {
+  font-size: 6px;
+}
 
- .pt10 {
-   padding-top: 10px;
- }
- .pt20 {
-   padding-top: 20px;
- }
- .pt30 {
-   padding-top: 30px;
- }
- .pt40 {
-   padding-top: 40px;
- }
+.mt30 {
+  margin-top: 30px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.mt50 {
+  margin-top: 50px;
+}
 
- .pt50 {
-   padding-top: 50px;
- }
-
- .pb50 {
-   padding-bottom: 50px;
- }
-
-  .navbar {
-    margin-bottom: 0px !important;
-  }
-
-  .navbar-default {
-      background-color: #ffffff;
-      border-color: #e7e7e7;
-  }
+.mb30 {
+  margin-bottom: 30px;
+}
+.mb50 {
+  margin-bottom: 50px;
+}
 
 
+.pt10 {
+ padding-top: 10px;
+}
+.pt20 {
+ padding-top: 20px;
+}
+.pt30 {
+ padding-top: 30px;
+}
+.pt40 {
+ padding-top: 40px;
+}
 
- /* footer */
- .bg-footer1 {
-   border-top: solid 2px #1c233e;
-   color: #666;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   /* background: linear-gradient(#eceef1,#a3a6b3); */
- }
+.pt50 {
+ padding-top: 50px;
+}
 
- .bg-footer2 {
-   color: white;
-   padding-top: 20px;
-   padding-bottom: 20px;
-   background-color: #c5134c !important;
- }
+.pb50 {
+ padding-bottom: 50px;
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+.pl20 {
+  padding-left: 20px;
+}
+.pl30 {
+  padding-left: 30px;
+}
+
+.border-left {
+  border-left: solid 1px #eee;
+}
+
+.bar-top{
+  /* width: 100%;
+  height: 30px;
+  background-color: navy; */
+}
+
+.top-text {
+  background-image: linear-gradient(to right, #130e63e3 0%, #33310c 51%, #bf0843 100%) !important;
+
+  text-align: right;
+  padding: 5px 25px 5px 3px;
+  color: white;
+  /* // font-weight: bold; */
+}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #e7e7e7;
+}
+
+/* パンくずリスト */
+.pan {
+padding-left: 20px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-bottom: 1px solid #eee;
+}
+
+
+
+
+/* footer */
+.bg-footer1 {
+ border-top: solid 2px #1c233e;
+ color: #666;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ /* background: linear-gradient(#eceef1,#a3a6b3); */
+}
+
+.bg-footer2 {
+ color: white;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ background-color: #c5134c !important;
+}
