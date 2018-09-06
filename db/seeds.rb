@@ -8,9 +8,16 @@
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 
+categories = ["荒野行動", "ポケモン", "ドラクエ", "ウイイレ", "パワプロ", "FF", "桃鉄", "NIKE", "Puma", "Adidas"]
+
+categories.each do |c|
+  Category.create(name: c)
+end
+
 10.times do |d|
     Article.create(
         title: "タイトルタイトルタイトル#{d}",
-        body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト#{d}"
+        body: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト#{d}",
+        category_id: rand(5) + 1
     )
 end
