@@ -41,7 +41,7 @@
   <!-- 3カラム -->
   <div class="main pt20">
     <div class="col-sm-2 col-xs-12">
-      <p>カテゴリ</p>
+      <h4>カテゴリ</h4>
       <% @categories.each do |category| %>
         <p><%= link_to category.name %></p>
       <% end %>
@@ -51,7 +51,7 @@
 
 
     <div class="col-sm-6 col-xs-12">
-      <p>ピックアップ</p>
+      <h4>ピックアップ</h4>
       <% @articles.each do |article| %>
         <p><%= link_to article.title ,article_path(article) %></p>
       <% end %>
