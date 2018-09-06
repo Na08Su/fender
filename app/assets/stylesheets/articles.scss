@@ -85,9 +85,7 @@
   font-weight: bold;
 }
 
-// side-list
-
-
+// right-side-list
 
 //
 .article-list-content {
@@ -101,6 +99,17 @@
 }
 .side-img {
   // padding-right: 10px;
+}
+
+.icon_rank {
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  background-color: #f7254ab5;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px 5px 10px;
+  border-radius: 9px;
 }
 .article-list-text {
   font-size: 12px;
