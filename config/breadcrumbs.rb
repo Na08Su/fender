@@ -1,5 +1,5 @@
 crumb :root do
-  link "Home", articles_path
+  link "Home", root_path
 end
 
 crumb :show_article do

@@ -1,18 +1,26 @@
 <% breadcrumb :show_article %>
 
-
-
 <div class="container">
   <div class="col-sm-8 col-xs-12">
 
     <div class="article">
-
+      <div class="created-time">
+        記事作成 <%= @article.created_at.strftime("%Y年 %m月 %d日") %>
+      </div>
       <div class="article-title">
         <h1><%= @article.title %></h1>
       </div>
+
       <div class="article-body">
         <%== @article.body %>
       </div>
+    </div>
+    <hr>
+
+    <div class="related-article">
+      <h4>関連する記事</h4>
+      <hr>
+
     </div>
   </div>
 
@@ -44,7 +52,6 @@
       </div>
       <% end %>
     </div>
-
 
 
     <div class="ad-space">
@@ -79,4 +86,6 @@
       <% end %>
     </div>
   </div>
+
+
 </div>
