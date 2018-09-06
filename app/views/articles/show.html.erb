@@ -31,28 +31,8 @@
       <hr>
     </div>
 
-    <div class="side-article-list border-left mb30">
-      <% @ranking_articles.each_with_index do |article, i| %>
-      <!-- 記事を縦に10個くらい表示させる -->
-      <!-- 写真 --><!-- 説明文 -->
-
-      <div class="article-list-content">
-        <div class="col-sm-3 col-xs-3">
-          <div class="mini-img">
-            <%= image_tag article.picture.url, :size => "65x55", class: 'side-img' if article&.picture %>
-            <span class="icon_rank"><%= i + 1 %></span>
-          </div>
-        </div>
-        <div class="col-sm-9 col-xs-9">
-          <div class="article-list-text">
-            <%= link_to article.title.truncate(36), article_path(article) %>
-          </div>
-          <p>by natsuki</p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
+    <!-- フィードはパーシャル化 -->
+    <%= render 'ranking' %>
 
     <div class="ad-space">
       広告入ります
@@ -64,27 +44,8 @@
       <p class="gray-text mini">注目されてる記事だよ</p>
       <hr>
     </div>
+    <%= render 'osusume' %>
 
-    <div class="side-article-list border-left">
-      <% @osusume_articles.each do |article| %>
-      <!-- 記事を縦に10個くらい表示させる -->
-      <!-- 写真 --><!-- 説明文 -->
-
-      <div class="article-list-content">
-        <div class="col-sm-3 col-xs-3">
-          <div class="mini-img">
-            <%= image_tag article.picture.url, :size => "65x55", class: 'side-img' if article&.picture %>
-          </div>
-        </div>
-        <div class="col-sm-9 col-xs-9">
-          <div class="article-list-text">
-            <%= link_to article.title.truncate(36), article_path(article) %>
-          </div>
-          <p>by Koki</p>
-        </div>
-      </div>
-      <% end %>
-    </div>
   </div>
 
 

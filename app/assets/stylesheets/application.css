@@ -72,6 +72,19 @@
   border-left: solid 1px #eee;
 }
 
+/* 余白を打ち消す */
+hr {
+  margin: 0px !important;
+}
+
+.erace-pl{
+  padding-left: 0px !important;
+}
+.erace-pr{
+  padding-right: 0px !important;
+}
+
+
 .bar-top{
   /* width: 100%;
   height: 30px;
@@ -121,4 +134,16 @@ border-bottom: 1px solid #eee;
  padding-top: 20px;
  padding-bottom: 20px;
  background-color: #c5134c !important;
+}
+
+
+
+
+/* 縁取りされた見出し */
+.border-title {
+  font-weight: 600;
+  color: #171744;
+  border: 2px solid #ffd400;
+  padding: 10px;
+  text-align: center;
 }

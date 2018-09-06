@@ -42,14 +42,14 @@
 <div class="container">
   <!-- 3カラム -->
   <div class="main pt20">
-    <div class="col-sm-2 col-xs-12">
-      <p>おすすめ記事</p>
-      <p>i</p>
-      <p>i</p>
-      <p>i</p>
+    <div class="col-sm-3 col-xs-12">
+      <p>カテゴリ</p>
+      <%#= render 'ranking' %>
+
     </div>
 
-    <div class="col-sm-6 col-xs-12">
+
+    <div class="col-sm-5 col-xs-12">
       <p>厳選記事</p>
       <p>i</p>
       <p>i</p>
@@ -58,13 +58,14 @@
       <p>i</p>
     </div>
     <div class="col-sm-4 col-xs-12">
-      <p>ランキング</p>
-      <p>i</p>
-      <p>i</p>
-      <p>i</p>
-      <p>i</p>
-      <p>i</p>
+      <h4 class="border-title">アクセスランキング</h4>
+      <%= render 'ranking' %>
+
+
+      <h4 class="border-title">おすすめ記事</h4>
+      <%= render 'osusume' %>
     </div>
+
   </div>
 
 </div>

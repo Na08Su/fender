@@ -10,6 +10,12 @@ class ArticlesController < ApplicationController
     @article_last2 = Article.last(2)[0]
 
     @article_youtube = Article.first # 動画記事
+
+
+    @osusume_articles = Article.last(5) # おすすめのロジック
+    @ranking_articles = Article.last(5) # ランキングのロジック
+
+
   end
 
   def show
