@@ -21,6 +21,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @related_article = Article.all
 
     @osusume_articles = Article.last(5) # おすすめのロジック
     @ranking_articles = Article.last(5) # ランキングのロジック

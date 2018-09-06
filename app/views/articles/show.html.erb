@@ -21,6 +21,10 @@
       <h4>関連する記事</h4>
       <hr>
 
+      <% @related_article.each do |article| %>
+        <h4><%= link_to article.title, article_path(article) %></h4>
+      <% end %>
+      
     </div>
   </div>
 
@@ -50,3 +54,5 @@
 
 
 </div>
+
+<%# breadcrumb :show_article %>
