@@ -11,6 +11,7 @@ ActiveAdmin.register Article do
     f.input :body, :as => :ckeditor
     f.input :picture
 
+    # アソシエーションのセレクト https://stackoverflow.com/questions/15491789/rails-activeadmin-custom-association-select-box
     f.input :category_id, :label => "カテゴリ", :as => :select, :collection => Category.all
     f.submit
   end
