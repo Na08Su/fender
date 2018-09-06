@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validate  :picture_size # カスタムバリデーション
 
-
+  belongs_to :category
 
 
   private

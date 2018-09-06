@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     @osusume_articles = Article.last(5) # おすすめのロジック
     @ranking_articles = Article.last(5) # ランキングのロジック
 
+    @categories = Category.all
 
   end
 
