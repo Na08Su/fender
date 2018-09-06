@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  body        :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  picture     :string
+#  category_id :integer
+#
+
 class Article < ApplicationRecord
   validates :title,       presence: true, length: { maximum: 40 }
   validates :body,        presence: true
