@@ -15,6 +15,12 @@
  */
 
  /* コンポーネント */
+
+
+ a, a:link, a:visited {
+    color: white !important;
+    text-decoration: none !important;
+}
 .mini {
   font-size: 6px;
 }

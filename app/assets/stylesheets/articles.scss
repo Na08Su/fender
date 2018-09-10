@@ -12,12 +12,13 @@
 // 人気タグ一覧
 .popular_tag {
   display: inline-block;
-  background: #d87272;
+  background: #050a33;
   border-radius: 4px;
   color: white;
   // font-weight: bold;
   padding: 8px;
   margin-bottom: 4px;
+  text-decoration: none !important;
 }
 
 .pickup {
