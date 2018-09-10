@@ -55,6 +55,7 @@ gem 'ransack'
 
 # タグ機能
 # https://github.com/mbleigh/acts-as-taggable-on
+# https://ruby-rails.hatenadiary.com/entry/20150225/1424858414
 gem 'acts-as-taggable-on'
 
 # 画像周り

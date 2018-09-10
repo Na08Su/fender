@@ -8,7 +8,7 @@
         <div class="col-sm-6 pb30">
           <h5>#タグ一覧</h5>
           <% @tags.each do |tag| %>
-            <span class="popular_tag"><%= link_to tag.name, related_tags_path(tag.name) %>&nbsp;(<%= tag.taggings_count %>)</span>
+            <span class="popular_tag"><%= link_to tag.name, related_tags_path(tag.name), class: "tag-link" %>&nbsp;(<%= tag.taggings_count %>)</span>
           <% end %>
         </div>
         <div class="col-sm-3">

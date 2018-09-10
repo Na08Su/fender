@@ -14,10 +14,16 @@
  *= require_self
  */
 
+ /* タイトル */
+.main-title {
+  color: #696868 !important;
+}
+
+
  /* コンポーネント */
 
 
- a, a:link, a:visited {
+.tag-link {
     color: white !important;
     text-decoration: none !important;
 }
