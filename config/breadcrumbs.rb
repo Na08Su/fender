@@ -8,6 +8,13 @@ crumb :show_article do
   parent :root
 end
 
+
+crumb :search_form do
+  @result = params[:search]
+  link "#{@result}の検索結果", search_path
+  parent :root
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

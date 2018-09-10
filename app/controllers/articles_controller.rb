@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
+
     if Rails.env == "development"
       @text = "ATOM遅いなあああああ"
       # @debug = @q.result.to_sql
@@ -27,4 +28,22 @@ class ArticlesController < ApplicationController
     @ranking_articles = Article.last(5) # ランキングのロジック
 
   end
+
+  def search_page
+
+    @q = Article.search(search_params)
+    @search_articles = @q.result#.page(params[:page]).per(30).order(created_at: :desc)#.eager_load(:taggings)
+
+    @name = params[:q][:body_cont]
+  end
+
+private
+
+  def search_params
+    return {} if params[:q].blank?
+    params.require(:q).permit(:title_cont,
+                              :body_cont
+                              )
+  end
+
 end

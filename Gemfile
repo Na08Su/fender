@@ -50,6 +50,9 @@ gem 'activeadmin'  # admin画面
 # https://rails-school.net/active-admin/
 # https://qiita.com/haneri/items/d9d8d2dfa239a7f2461d
 
+# 検索
+gem 'ransack'
+
 # 画像周り
 
 gem 'carrierwave'
@@ -60,11 +63,15 @@ gem 'mini_magick'
 gem 'ckeditor'
 
 ### SEO #####
-gem "gretel" 
+gem "gretel"
 
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
