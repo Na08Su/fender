@@ -21,6 +21,9 @@ class Article < ApplicationRecord
 
   belongs_to :category
 
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :label
+
 
   private
 

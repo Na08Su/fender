@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/related_tags' => "articles#related_tags"
   root 'articles#index'
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config

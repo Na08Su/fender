@@ -53,8 +53,11 @@ gem 'activeadmin'  # admin画面
 # 検索
 gem 'ransack'
 
-# 画像周り
+# タグ機能
+# https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on'
 
+# 画像周り
 gem 'carrierwave'
 gem 'mini_magick'
 

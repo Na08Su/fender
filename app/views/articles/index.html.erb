@@ -1,6 +1,20 @@
 <section class="pickup">
   <div class="container pt50 pb50">
     <div class="main_wrraper">
+      <div class="tag center">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6 pb30">
+          <h5>#タグ一覧</h5>
+          <% @tags.each do |tag| %>
+            <span class="popular_tag"><%= link_to tag.name, related_tags_path(tag.name) %>&nbsp;(<%= tag.taggings_count %>)</span>
+          <% end %>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
       <div class="col-sm-4 col-xs-12">
         <div class="main_background">
           <%= link_to @article_last1 do%>
@@ -38,6 +52,7 @@
 </section>
 
 <div class="container">
+
   <!-- 3カラム -->
   <div class="main pt20">
     <div class="col-sm-2 col-xs-12">

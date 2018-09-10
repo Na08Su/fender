@@ -8,6 +8,18 @@
 
 
 // TOPページ   /articles
+
+// 人気タグ一覧
+.popular_tag {
+  display: inline-block;
+  background: #d87272;
+  border-radius: 4px;
+  color: white;
+  // font-weight: bold;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+
 .pickup {
   background-color: #f9f9f9;
   border-top: solid 2px #e8e8e8;

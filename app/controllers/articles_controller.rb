@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
       # @debug = @q.result.to_sql
     end
 
+    @tags = ActsAsTaggableOn::Tag.most_used(30)
+
+
     @articles = Article.all
     @article_last1  = Article.last
     @article_last2 = Article.last(2)[0]
@@ -35,6 +38,13 @@ class ArticlesController < ApplicationController
     @search_articles = @q.result#.page(params[:page]).per(30).order(created_at: :desc)#.eager_load(:taggings)
 
     @name = params[:q][:body_cont]
+  end
+
+  def related_tags
+    # binding.pry
+    @name = params[:format]
+    @tags = Article.tagged_with(params[:format])
+    # @tags
   end
 
 private
