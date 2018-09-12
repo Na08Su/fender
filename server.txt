@@ -93,7 +93,7 @@ mysqlに接続できない問題
 
 fender natsukisugawara$ bundle exec rake db:create
 "Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
-Couldn't create database for {"adapter"=>"mysql2", "encoding"=>"utf8", "pool"=>5, "host"=>"localhost", "database"=>"fender_development", "username"=>"root", "password"=>"snsn0803", "socket"=>"/tmp/mysql.sock"}
+Couldn't create database for {"adapter"=>"mysql2", "encoding"=>"utf8", "pool"=>5, "host"=>"localhost", "database"=>"fender_development", "username"=>"root"}
 rake aborted!
 Mysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 /Users/natsukisugawara/.rbenv/versions/2.5.1/bin/bundle:23:in `load'

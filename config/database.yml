@@ -5,8 +5,6 @@ development:
   host: localhost
   database: fender_development
   username: root
-  # password: snsn0803
-  # socket: /tmp/mysql.sock
 
 # SQLite version 3.x
 #   gem install sqlite3
