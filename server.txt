@@ -1,0 +1,107 @@
+サーバーのメモ
+
+
+centosのバージョンとbento/centosのバージョンについて
+https://teratail.com/questions/62830
+
+yum update していけば Cent OS 7.x 系の最新バージョン
+（現在は 7.3 ）になるので、どれから始めても似たようなものです。
+
+vagrant box add bento/centos-7.3  --provider virtualbox
+
+
+
+### コマンド  ####
+
+vimでの変更を上書き保存できない場合
+:w !sudo tee %を使用
+
+⚠︎ #はサーバー内でのコマンド $はローカルのコマンド
+作業フォルダ => os_server/centos7.5
+
+
+バージョン確認
+# cat /etc/redhat-release
+CentOS Linux release 7.5.1804 (Core)
+
+
+$ vagrant up # vagrantが立ち上がる
+$ vagrant status # vagrantのステータスを確認 runningとなって入れば起動されている
+
+$ vagrant ssh   # サーバーにsshで入る
+
+# exit
+$ vagrant half # vagrant停止
+
+
+VPSにアクセス
+$ ssh root@118.27.9.161
+パスワード N***************
+
+# 鍵設定
+公開鍵をvpsに渡して、Mac側の秘密鍵と照らし合わせマッチさせることでセキュリティ向上
+vps側の ~/.sshに作成
+転送コマンド
+$ scp ~/.ssh/meloon.pub nattu@118.27.9.161:~/.ssh/authorized_keys
+
+鍵認証ができるようになった
+$ ssh -i ~/.ssh/meloon nattu@118.27.9.161
+
+
+ # sshの設定  (/etc/ssh/sshd_configをいじる)
+
+1.ポート番号の変更 22-> 6183
+2.パスワードログインの禁止 # スピード維持のため、してない
+3.root禁止              # スピード維持のため、してない
+
+サーバーリスタートして、設定の読み込み
+# systemctl restart sshd
+↑CentOS 7 からは serviceではなく、systemctl コマンドを使うらしい。
+さらにCentOS7ではiptablesではなく、firewalldを使用するとのこと。
+$ service iptables stop ->systemctl stop firewalld
+
+ファイアウォール起動   systemctl start firewalld
+再起動 systemctl restart firewalld
+終了   systemctl stop firewalld
+
+# firewallの設定 -> ⚠️centos6はiptablesだったが、7からはfirewalldになるので要注意
+https://www.server-memo.net/centos-settings/firewalld/firewalld.html
+
+/etc/sysconfig/iptablesに書いてある
+
+許容する通信などが記載されてあるので、今後firewall関連でエラーが出た際には、
+こちらにacceptの胸を記述する必要あり
+
+⚠️ 6183を許可していないため、現状firewallをスタートさせるとサーバーからアクセスを
+拒絶されてしまうので、注意する-> 設定ファイルに記載する必要あり
+firewalldの設定マニュアル
+⭐️http://www.kakiro-web.com/linux/firewalld.html
+
+
+mysql
+https://enomotodev.hatenablog.com/entry/2016/09/01/225200
+
+パスワードの確認 $ sudo cat /var/log/mysqld.log | grep password
+2018-09-12T07:40:17.199490Z 1 [Note] A temporary password is generated for root@localhost: v&N+midJd5tS(←ここの部分)
+
+mysqlにログイン
+$ mysql -u root -p(secret.txtに記載)
+$ show databases;
+
+
+mysqlに接続できない問題
+
+fender natsukisugawara$ bundle exec rake db:create
+"Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+Couldn't create database for {"adapter"=>"mysql2", "encoding"=>"utf8", "pool"=>5, "host"=>"localhost", "database"=>"fender_development", "username"=>"root", "password"=>"snsn0803", "socket"=>"/tmp/mysql.sock"}
+rake aborted!
+Mysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+/Users/natsukisugawara/.rbenv/versions/2.5.1/bin/bundle:23:in `load'
+/Users/natsukisugawara/.rbenv/versions/2.5.1/bin/bundle:23:in `<main>'
+Tasks: TOP => db:create
+(See full trace by running task with --trace)"
+
+↓以下のようにして解決
+$ whoami
+natsukisugawara
+oasis:fender natsukisugawara$ sudo chown -R natsukisugawara:wheel /usr/local/var/mysql
