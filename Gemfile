@@ -96,6 +96,21 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'xray-rails' # viewの構造を表示
+
+
+  # N+1問題の指摘をしてくれる
+  # http://ruby-rails.hatenadiary.com/entry/20141109/1415522242
+  gem "bullet"
+
+
+  # デプロイ
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+
+  gem 'capistrano-rails-console' # 手元の環境からデプロイ先のconsoleを使う  https://qiita.com/zaru/items/42953ac86df29043fda0
+
 end
 
 group :test do
@@ -108,6 +123,7 @@ end
 
 group :production do
   gem 'fog'
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

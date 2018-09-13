@@ -77,7 +77,6 @@ https://www.server-memo.net/centos-settings/firewalld/firewalld.html
 firewalldの設定マニュアル
 ⭐️http://www.kakiro-web.com/linux/firewalld.html
 
-
 mysql
 https://enomotodev.hatenablog.com/entry/2016/09/01/225200
 
@@ -105,3 +104,38 @@ Tasks: TOP => db:create
 $ whoami
 natsukisugawara
 oasis:fender natsukisugawara$ sudo chown -R natsukisugawara:wheel /usr/local/var/mysql
+
+
+
+## Nginxの設定
+
+コマンド
+自動起動設定
+$ sudo systemctl enable nginx
+起動
+$ sudo systemctl start nginx
+停止
+$ sudo systemctl stop nginx
+設定適用
+$ sudo systemctl reload nginx
+稼働状況確認
+$ sudo systemctl status nginx
+
+
+/etc/nginx/conf.d/local.confに設定ファイルがある
+
+/var/log/nginx/error.log # エラーログのパス
+/var/log/nginx/access.log # アクセス
+
+
+
+⚠️後回し
+
+$ rake assets:precompile RAILS_ENV=production  # => 環境変数をサーバーに付与する必要
+rake aborted!
+ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_key
+/Users/natsukisugawara/Desktop/fender/config/initializers/carrier_wave.rb:5:in `block in <main>'
+/Users/natsukisugawara/Desktop/fender/config/initializers/carrier_wave.rb:4:in `<main>'
+/Users/natsukisugawara/Desktop/fender/config/environment.rb:5:in `<main>'
+Tasks: TOP => environment
+(See full trace by running task with --trace)
