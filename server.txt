@@ -139,3 +139,22 @@ ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_
 /Users/natsukisugawara/Desktop/fender/config/environment.rb:5:in `<main>'
 Tasks: TOP => environment
 (See full trace by running task with --trace)
+
+
+
+
+
+
+バグってるなう
+
+ローカルに
+
+Host conoha_hoge
+  HostName 133.130.116.122
+  User hoge
+  Port 10022
+  IdentityFile  ~/.ssh/conoha_hoge/id_rsa
+
+  のようなファイルを作成し
+
+  ssh conoha_hogeで通信できればOK

@@ -46,9 +46,10 @@ namespace :deploy do
     end
   end
   # linked_files で使用するファイルをアップロードするタスク
-  #   # deployが行われる前に実行する必要がある。
+  # deployが行われる前に実行する必要がある。
   desc 'upload important files'
   task :upload do
+    binding.pry
     on roles(:app) do |host|
       execute :mkdir, '-p', "#{shared_path}/config"
       upload!('config/database.yml',"#{shared_path}/config/database.yml")
