@@ -6,7 +6,7 @@ require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
 require "capistrano/rbenv"
-set :rbenv_type, :system #rbenvをシステムにインストールした or ユーザーローカルにインストールした
+set :rbenv_type, :user #rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1'
 set :rbenv_custom_path, '/usr/local/rbenv/'
 
