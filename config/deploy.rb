@@ -2,10 +2,10 @@
 lock "~> 3.11.0"
 
 set :application, "fender"
-set :repo_url, "git@github.com:NatsukiSugawara/fender.git"
+set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
 set :deploy_to, '/var/www/app/fender'
 
-set :branch, 'master'
+set :branch, 'master' # ブランチを指定
 # set :scm, :git
 set :deploy_via, :remote_cache
 
@@ -16,7 +16,6 @@ set :bundle_binstubs, nil
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル
-# binding.pry
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定
 
 # Unicorn
