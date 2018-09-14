@@ -32,9 +32,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
@@ -102,7 +99,6 @@ group :development do
   # N+1問題の指摘をしてくれる
   # http://ruby-rails.hatenadiary.com/entry/20141109/1415522242
   gem "bullet"
-
 
   # デプロイ
   gem 'capistrano'
