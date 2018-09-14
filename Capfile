@@ -8,7 +8,7 @@ install_plugin Capistrano::SCM::Git
 require "capistrano/rbenv"
 set :rbenv_type, :user #rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1'
-set :rbenv_custom_path, '/usr/local/rbenv/'
+set :rbenv_custom_path, '/home/nattu/.rbenv'
 
 require "capistrano/bundler"
 require "capistrano/rails/assets"
