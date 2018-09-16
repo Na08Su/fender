@@ -9,6 +9,7 @@ set :branch, 'master' # ブランチを指定
 # set :scm, :git
 set :deploy_via, :remote_cache
 
+
 set :log_level, :debug # 出力の制御
 set :pty, true # sudoを使用するのに必要
 set :bundle_binstubs, nil

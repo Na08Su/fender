@@ -101,12 +101,12 @@ group :development do
   gem "bullet"
 
   # デプロイ
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
 
-  gem 'capistrano-rails-console' # 手元の環境からデプロイ先のconsoleを使う  https://qiita.com/zaru/items/42953ac86df29043fda0
+  gem 'capistrano-rails-console', require: false # 手元の環境からデプロイ先のconsoleを使う  https://qiita.com/zaru/items/42953ac86df29043fda0
 
 end
 

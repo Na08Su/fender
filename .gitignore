@@ -32,6 +32,8 @@
 /vendor/bundle
 
 config/database.yml
+config/secrets.yml
+
 secret.txt
 #画像
 /public/uploads

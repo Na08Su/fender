@@ -149,12 +149,18 @@ Tasks: TOP => environment
 
 ローカルに
 
-Host conoha_hoge
-  HostName 133.130.116.122
+Host fender
+  HostName 118.28.9.161
   User hoge
-  Port 10022
-  IdentityFile  ~/.ssh/conoha_hoge/id_rsa
+  Port 6183
+  IdentityFile  ~/.ssh/fender/id_rsa
 
   のようなファイルを作成し
+  ssh fenderで通信できればOK => できた
 
-  ssh conoha_hogeで通信できればOK
+リモートからgithubにアクセスできなかった件
+  .ssh以下のid_rsa id_rsa.pubの所有者がrootになっていたので、nattuの操作ではpermission エラーになっていた
+  -> 所有者を変えることで解決
+  $sudo chown nattu:nattu id_rsa.pub
+
+  $ ssh -vT git@github.com # デバッグに便利
