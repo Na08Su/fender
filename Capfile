@@ -1,3 +1,7 @@
+#https://capistranorb.com/documentation/getting-started/configuration/
+# ↑capistranoの各設定詳細マニュアル
+
+
 # capistranoの基本動作を設定
 require "capistrano/setup"
 require "capistrano/deploy"
@@ -5,7 +9,9 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
-require 'capistrano/rvm'
+#もしかしたらrvm導入するかも
+#https://stackoverflow.com/questions/19716131/usr-bin-env-ruby-no-such-file-or-directory-using-capistrano-3-capistrano-rben
+# require 'capistrano/rvm'
 
 
 require "capistrano/rbenv"

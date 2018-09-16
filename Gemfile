@@ -102,9 +102,9 @@ group :development do
 
   # デプロイ
 
-  gem 'capistrano-rvm'
+  # gem 'capistrano-rvm'
 
-  
+
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false

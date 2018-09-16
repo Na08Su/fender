@@ -16,6 +16,9 @@ set :log_level, :debug # 出力の制御
 set :pty, true # sudoを使用するのに必要
 set :bundle_binstubs, nil
 
+# capistrano用でbundleするのに必要
+#set :default_env, { path: ""}
+
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル
