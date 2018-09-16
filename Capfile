@@ -5,6 +5,9 @@ require "capistrano/deploy"
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
 
+require 'capistrano/rvm'
+
+
 require "capistrano/rbenv"
 set :rbenv_type, :user #rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1'
