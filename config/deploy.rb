@@ -17,7 +17,7 @@ set :pty, true # sudoを使用するのに必要
 set :bundle_binstubs, nil
 
 # capistrano用でbundleするのに必要
-set :default_env, { path: "/home/nattu/.rbenv"}
+set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"} # 
 
 
 # Shared に入るものを指定
