@@ -273,3 +273,8 @@ The deploy has failed with an error: Exception while executing as nattu@118.27.9
 rake stdout: rake aborted!
 ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_key
 /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/fog-core-1.45.0/lib/fog/core/service.rb:244:in `validate_options'
+
+
+
+再起動したあととかだと、cap productionができなくなる
+$ ssh-add ~/.ssh/fender/meloon
