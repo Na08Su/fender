@@ -71,6 +71,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 
 gem 'rb-readline' # gem 'capistrano-rails-console'で使うらしい
+gem 'unicorn'
 
 gem 'dotenv-rails'
 
@@ -107,9 +108,6 @@ group :development do
 
   # デプロイ
 
-  # gem 'capistrano-rvm'
-
-
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
@@ -130,7 +128,6 @@ end
 
 group :production do
   gem 'fog', '~> 1.41.0'
-  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

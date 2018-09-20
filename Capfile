@@ -34,6 +34,7 @@ set :default_env, {
 require "capistrano/bundler"
 require 'capistrano3/unicorn'
 
+require "capistrano/rails"
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 

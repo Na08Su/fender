@@ -7,7 +7,8 @@ app_path = '/var/www/app/fender/current' #### 変更
 app_shared_path = "#{app_path}/shared"
 working_directory "#{app_path}"
 
-listen "#{app_shared_path}/sockets/unicorn.sock"
+# nginxと連携するための設定
+listen "#{app_shared_path}/tmp/sockets/unicorn.sock" # tmpを追加してみた-> nginx.confも修正する必要あるかも
 
 stdout_path "#{app_shared_path}/log/unicorn.stdout.log"
 stderr_path "#{app_shared_path}/log/unicorn.stderr.log"
