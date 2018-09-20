@@ -548,7 +548,7 @@ DEPENDENCIES
   ckeditor
   coffee-rails (~> 4.2)
   devise
-  fog
+  fog (~> 2.0.0)
   gretel
   jbuilder (~> 2.5)
   jquery-rails
