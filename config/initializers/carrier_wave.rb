@@ -1,4 +1,3 @@
-
 # 本番の画像サーバー設定
 if Rails.env.production?
   CarrierWave.configure do |config|

@@ -26,8 +26,8 @@ set :rbenv_custom_path, '/home/nattu/.rbenv'
 set :default_env, {
   rbenv_root: "#{fetch(:rbenv_custom_path)}",
   path: "#{fetch(:rbenv_custom_path)}/shims:#{fetch(:rbenv_custom_path)}/bin:$PATH",
-  aws_access_key: ENV['S3_ACCESS_KEY'],
-  aws_secret_access_key: ENV['S3_SECRET_KEY']
+  S3_ACCESS_KEY: ENV['S3_ACCESS_KEY'],
+  S3_SECRET_KEY: ENV['S3_SECRET_KEY']
 }
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
