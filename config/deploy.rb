@@ -16,10 +16,6 @@ set :log_level, :debug # 出力の制御
 set :pty, true # sudoを使用するのに必要
 set :bundle_binstubs, nil
 
-# capistrano用でbundleするのに必要
-# set :default_env, { path: "/home/nattu/.rbenv"}
-
-
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
 set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載

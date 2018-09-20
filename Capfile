@@ -25,7 +25,9 @@ set :rbenv_custom_path, '/home/nattu/.rbenv'
 # capistrano用でbundleするのに必要
 set :default_env, {
   rbenv_root: "#{fetch(:rbenv_custom_path)}",
-  path: "#{fetch(:rbenv_custom_path)}/shims:#{fetch(:rbenv_custom_path)}/bin:$PATH"}
+  path: "#{fetch(:rbenv_custom_path)}/shims:#{fetch(:rbenv_custom_path)}/bin:$PATH"
+  
+}
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 require "capistrano/bundler"
