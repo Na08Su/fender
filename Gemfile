@@ -123,7 +123,7 @@ group :test do
 end
 
 group :production do
-  gem 'fog', '~>2.0.0'
+  gem 'fog', '~> 1.41.0'
   gem 'unicorn'
 end
 
