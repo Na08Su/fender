@@ -164,3 +164,112 @@ Host fender
   $sudo chown nattu:nattu id_rsa.pub
 
   $ ssh -vT git@github.com # デバッグに便利
+
+
+
+cap production deployでのエラー
+1. bundle installができない
+
+参考記事)https://blog.wackwack.net/entry/2014/06/24/005051
+https://www.pistolfly.com/weblog/2012/01/change-path-environment-with-r.html
+~> ** DEPLOY FAILED
+** Refer to log/capistrano.log for details. Here are the last 20 lines:
+
+
+  INFO [89645011] Finished in 0.123 seconds with exit status 0 (successful).
+
+ DEBUG [b9a75c7f] Running [ -L /var/www/app/fender/releases/20180916155036/public/assets ] as user@***.**.*.***
+
+ DEBUG [b9a75c7f] Command: [ -L /var/www/app/fender/releases/20180916155036/public/assets ]
+
+ DEBUG [4835d854] Finished in 0.124 seconds with exit status 1 (failed).
+
+ DEBUG [5094f5a4] Running [ -d /var/www/app/fender/releases/20180916155036/public/assets ] as user@***.**.*.***
+
+ DEBUG [5094f5a4] Command: [ -d /var/www/app/fender/releases/20180916155036/public/assets ]
+
+ DEBUG [863a2bb4] Finished in 0.122 seconds with exit status 1 (failed).
+
+  INFO [de2725c3] Running /usr/bin/env ln -s /var/www/app/fender/shared/public/assets /var/www/app/fender/releases/20180916155036/public/assets as user@***.**.*.***
+
+ DEBUG [de2725c3] Command: ( export RBENV_ROOT="/home/user/.rbenv" RBENV_VERSION="2.5.1" ; /usr/bin/env ln -s /var/www/app/fender/shared/public/assets /var/www/app/fender/releases/20180916155036/public/assets )
+
+  INFO [a90efcc3] Finished in 0.128 seconds with exit status 0 (successful).
+
+ DEBUG [04d3f607] Running if test ! -d /var/www/app/fender/releases/20180916155036; then echo "Directory does not exist '/var/www/app/fender/releases/20180916155036'" 1>&2; false; fi as user@***.**.*.***
+
+ DEBUG [04d3f607] Command: if test ! -d /var/www/app/fender/releases/20180916155036; then echo "Directory does not exist '/var/www/app/fender/releases/20180916155036'" 1>&2; false; fi
+
+ DEBUG [f82397df] Finished in 0.119 seconds with exit status 0 (successful).
+
+ DEBUG [2efa1e88] Running /home/user/.rbenv/bin/rbenv exec bundle check --path /var/www/app/fender/shared/bundle as user@***.**.*.***
+
+ DEBUG [2efa1e88] Command: cd /var/www/app/fender/releases/20180916155036 && ( export RBENV_ROOT="/home/user/.rbenv" RBENV_VERSION="2.5.1" ; /home/user/.rbenv/bin/rbenv exec bundle check --path /var/www/app/fender/shared/bundle )
+
+ DEBUG [f78703ad] 	/usr/bin/env: ruby: そのようなファイルやディレクトリはありません
+
+ DEBUG [f78703ad] Finished in 0.194 seconds with exit status 127 (failed).
+
+  INFO [06a59c4a] Running /home/user/.rbenv/bin/rbenv exec bundle install --path /var/www/app/fender/shared/bundle --without development test --deployment --quiet as user@***.**.*.***
+
+ DEBUG [06a59c4a] Command: cd /var/www/app/fender/releases/20180916155036 && ( export RBENV_ROOT="/home/user/.rbenv" RBENV_VERSION="2.5.1" ; /home/user/.rbenv/bin/rbenv exec bundle install --path /var/www/app/fender/shared/bundle --without development test --deployment --quiet )
+
+ DEBUG [d6342b8b] 	/usr/bin/env: ruby: そのようなファイルやディレクトリはありません
+
+ => default_envを設定して修復した。
+
+2. fogのバージョン依存のエラー
+bundler:install
+     01 /home/nattu/.rbenv/bin/rbenv exec bundle install --path /var/www/app/fender/shared/bundle --without development test --deployment --quiet
+     01 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+     01
+     01 current directory:
+     01 /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+     01 /home/nattu/.rbenv/versions/2.5.1/bin/ruby -r ./siteconf20180920-5079-18g39y3.rb
+     01 extconf.rb
+     01 checking for -lstdc++... no
+     01 creating Makefile
+     01
+     01 current directory:
+     01 /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+     01 make "DESTDIR=" clean
+     01
+     01 current directory:
+     01 /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5/ext/unf_ext
+     01 make "DESTDIR="
+     01 compiling unf.cc
+     01 make: g++: コマンドが見つかりませんでした
+     01 make: *** [unf.o] エラー 127
+     01
+     01 make failed, exit code 2
+     01
+     01 Gem files will remain installed in
+     01 /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unf_ext-0.0.7.5 for
+     01 inspection.
+     01 Results logged to
+     01 /var/www/app/fender/shared/bundle/ruby/2.5.0/extensions/x86_64-linux/2.5.0-static/unf_ext-0.0.7.5/gem_make.out
+     01
+     01 An error occurred while installing unf_ext (0.0.7.5), and Bundler cannot
+     01 continue.
+     01 Make sure that `gem install unf_ext -v '0.0.7.5' --source
+     01 'https://rubygems.org/'` succeeds before bundling.
+     01
+     01 In Gemfile:
+     01   fog was resolved to 2.0.0, which depends on
+     01     fog-ovirt was resolved to 1.1.2, which depends on
+     01       rbovirt was resolved to 0.1.7, which depends on
+     01         rest-client was resolved to 2.0.2, which depends on
+     01           http-cookie was resolved to 1.0.3, which depends on
+     01             domain_name was resolved to 0.5.20180417, which depends on
+     01               unf was resolved to 0.1.4, which depends on
+     01                 unf_ext
+https://qiita.com/nariatsu/items/7c260df42289b7acc711
+
+3. assets precompileのエラー
+
+Tasks: TOP => deploy:assets:precompile
+(See full trace by running task with --trace)
+The deploy has failed with an error: Exception while executing as nattu@118.27.9.161: rake exit status: 1
+rake stdout: rake aborted!
+ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_key
+/var/www/app/fender/shared/bundle/ruby/2.5.0/gems/fog-core-1.45.0/lib/fog/core/service.rb:244:in `validate_options'

@@ -93,7 +93,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'xray-rails' # viewの構造を表示
+  #gem 'xray-rails' # viewの構造を表示 precompileでバグるため一旦保留 -> 読み込みの設定が必要
+  # rake aborted!
+# Sprockets::FileNotFound: couldn't find file 'xray' with type 'application/javascript'
+# Checked in these paths:
+#   /Users/natsukisugawara/
 
 
   # N+1問題の指摘をしてくれる

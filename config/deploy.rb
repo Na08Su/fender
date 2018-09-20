@@ -21,8 +21,8 @@ set :bundle_binstubs, nil
 
 
 # Shared に入るものを指定
-set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定
+set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
 
 # Unicorn
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
