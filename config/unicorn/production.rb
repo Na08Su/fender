@@ -3,7 +3,9 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true # 更新時ダウンタイム無し
 
-app_path = '/var/www/app/fender/current' #### 変更
+# app_path = '/var/www/app/fender/current' #### 変更 試しにcurrent外してみる
+app_path = '/var/www/app/fender' #### 変更 試しにcurrent外してみる
+
 app_shared_path = "#{app_path}/shared"
 working_directory "#{app_path}"
 
