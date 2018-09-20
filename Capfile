@@ -15,12 +15,18 @@ install_plugin Capistrano::SCM::Git
 
 
 require "capistrano/rbenv"
-set :rbenv_type, :user #rbenvをシステムにインストールした or ユーザーローカルにインストールした
-set :rbenv_ruby, '2.5.1'
+set :rbenv_type, :user   # rbenvをシステムにインストールした or ユーザーローカルにインストールした
+set :rbenv_ruby, '2.5.1' # サーバで利用するrubyのバージョンを指定
 
 set :rbenv_custom_path, '/home/nattu/.rbenv'
 # リモートサーバーで$ rbenv version
 # 2.5.1 (set by /home/nattu/.rbenv/version)に基づく
+
+# capistrano用でbundleするのに必要
+set :default_env, {
+  rbenv_root: "#{fetch(:rbenv_custom_path)}",
+  path: "#{fetch(:rbenv_custom_path)}/shims:#{fetch(:rbenv_custom_path)}/bin:$PATH"}
+# set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 require "capistrano/bundler"
 require "capistrano/rails/assets"
