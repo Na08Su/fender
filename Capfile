@@ -32,6 +32,8 @@ set :default_env, {
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 require "capistrano/bundler"
+require 'capistrano3/unicorn'
+
 require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 
