@@ -22,6 +22,10 @@ set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/syste
 
 # Unicorn
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
+puts "#{shared_path}"
+puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
+
 
 
 set :keep_releases, 5
