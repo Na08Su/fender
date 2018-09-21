@@ -22,8 +22,7 @@ stderr_path "#{app_shared_path}/log/unicorn.stderr.log"
 
 #shared_path = "/var/www/app/fender/shared"
 # PIDの管理ディレクトリ
-pid "#{shared_path}/tmp/pids/unicorn.pid"
-# pid "#{app_shared_path}/tmp/pids/unicorn.pid"
+pid "#{app_shared_path}/tmp/pids/unicorn.pid"
 
 
 # ログの出力パス
