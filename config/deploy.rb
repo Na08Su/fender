@@ -83,7 +83,7 @@ namespace :deploy do
 
   #unicorn 再起動タスク
   desc 'Restart application'
-  task :restart do
-    invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
-  end
+  #task :restart do
+    #invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
+  #end
 end
