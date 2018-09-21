@@ -278,3 +278,41 @@ ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_
 
 再起動したあととかだと、cap productionができなくなる
 $ ssh-add ~/.ssh/fender/meloon
+
+
+
+unicornエラー
+unicorn:start
+      01 /home/nattu/.rbenv/bin/rbenv exec bundle exec unicorn -c /var/www/app/fender/current/config/unicorn/production.rb -E deployment -D
+      01 bundler: failed to load command: unicorn (/var/www/app/fender/shared/bundle/ruby/2.5.0/bin/unicorn)
+      01 ArgumentError: directory for pid=/var/www/app/fender/current/shared/tmp/pids/unicorn.pid not writable
+      01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/configurator.rb:100:in `block in reload'
+
+
+      # unicorn:start
+      #       01 /home/nattu/.rbenv/bin/rbenv exec bundle exec unicorn -c /var/www/app/fender/current/config/unicorn/production.rb -E deployment -D
+      #       01 -----------------------------------------------------------------
+      #       01 -------------メッシメッシメッシメッシメッシメッシメッシ-----------------
+      #       01 -----------------------------------------------------------------
+      #       01 bundler: failed to load command: unicorn (/var/www/app/fender/shared/bundle/ruby/2.5.0/bin/unicorn)
+      #       01 ArgumentError: directory for pid=/var/www/app/fender/current/shared/tmp/pids/unicorn.pid not writable
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/configurator.rb:100:in `block in reload'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/configurator.rb:96:in `each'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/configurator.rb:96:in `reload'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/configurator.rb:77:in `initialize'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:77:in `new'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/lib/unicorn/http_server.rb:77:in `initialize'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/bin/unicorn:126:in `new'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/gems/unicorn-5.4.1/bin/unicorn:126:in `<top (required)>'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `load'
+      #       01   /var/www/app/fender/shared/bundle/ruby/2.5.0/bin/unicorn:23:in `<top (required)>'
+      #       01 master failed to start, check stderr log for details
+      # #<Thread:0x00007f8501ad46b0@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+      # Traceback (most recent call last):
+      # 	1: from /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+      # /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as nattu@118.27.9.161: bundle exit status: 1 (SSHKit::Runner::ExecuteError)
+
+      # ローカルでfender/shared/tmp/pids/のディレクトリを作ってあげれば治る
+      # https://blog.nagatech.work/post/ruby/78
+
+      

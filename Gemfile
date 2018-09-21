@@ -73,28 +73,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rb-readline' # gem 'capistrano-rails-console'で使うらしい
 gem 'unicorn'
 
-gem 'dotenv-rails'
-
-
-gem 'pry'
-# rails consoleをirbではなくpryにしてくれる
-gem 'pry-rails'
-gem 'pry-doc'    # methodを表示
-gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
-gem "better_errors"
-gem "binding_of_caller"
+gem 'dotenv-rails' # 環境変数を管理する
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # gem 'pry'
-  # # rails consoleをirbではなくpryにしてくれる
-  # gem 'pry-rails'
-  # gem 'pry-doc'    # methodを表示
-  # gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
-  # gem "better_errors"
-  # gem "binding_of_caller"
+  gem 'pry'
+  # rails consoleをirbではなくpryにしてくれる
+  gem 'pry-rails'
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
