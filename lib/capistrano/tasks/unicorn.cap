@@ -18,6 +18,7 @@ namespace :unicorn do
   end
 
   def reload_unicorn
+    # バグる
     execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})"
   end
 
@@ -43,7 +44,9 @@ namespace :unicorn do
   task :restart => :environment do
     on roles(:app) do
       if test("[ -f #{fetch(:unicorn_pid)} ]")
+        puts "reloadできるのかなあ〜〜〜〜〜〜〜〜"
         reload_unicorn
+        puts "reloadできないよ〜〜〜〜〜〜〜〜"
       else
         start_unicorn
       end
