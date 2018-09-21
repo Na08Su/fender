@@ -1,11 +1,13 @@
 namespace :unicorn do
   task :environment do
     # shared_path = "/var/www/app/fender/shared"
+    # current_path = "/var/www/app/fender/current"
     set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
     set :unicorn_config, "#{current_path}/config/unicorn/#{fetch(:rails_env)}.rb"
   end
 
   def start_unicorn
+    # フォルダが存在した場合のみ実行する
     within current_path do
     execute :bundle, :exec, :unicorn, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
     end

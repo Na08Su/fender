@@ -3,17 +3,20 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
+# 基本設定
 set :application, "fender"
 set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
-set :deploy_to, '/var/www/app/fender'
+set :deploy_to, '/var/www/app/fender' # デプロイ先
 
-set :branch, 'master' # ブランチを指定
+set :branch, 'master' # ブランチを指定できる
 # set :scm, :git
 set :deploy_via, :remote_cache
 
 
-set :log_level, :debug # 出力の制御
+set :log_level, :debug # capistranoの出力ログの制御
 set :pty, true # sudoを使用するのに必要
+
+# bundleインストール設定
 set :bundle_binstubs, nil
 
 # Shared に入るものを指定
@@ -23,11 +26,14 @@ set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/syste
 # Unicorn
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-puts "#{shared_path}"
+puts "shared_path=#{shared_path}"# /var/www/app/fender/shared
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
 
+puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
+puts "current_path=#{current_path}" # /var/www/app/fender/current
+puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
 
-
+# リリースフォルダをいくつまで保持するか？
 set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
