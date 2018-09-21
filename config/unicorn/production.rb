@@ -9,6 +9,8 @@ working_directory "#{app_path}"
 
 app_shared_path = "#{app_path}/shared"
 
+#エラー /var/www/app/fender/current/shared/tmp/pids/unicorn.pid not writable
+
 # nginxと連携するための設定
 listen "#{app_shared_path}/tmp/sockets/unicorn.sock" # tmpを追加してみた-> nginx.confも修正する必要あるかも
 
@@ -24,7 +26,7 @@ stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 puts "-----------------------------------------------------------------"
 puts "-------------メッシメッシメッシメッシメッシメッシメッシ-----------------"
 puts "-----------------------------------------------------------------"
-binding.pry
+# binding.pry
 
 # before_exec do |server|
 #   ENV['BUNDLE_GEMFILE'] = "#{ app_path }/Gemfile"
