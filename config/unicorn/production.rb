@@ -3,11 +3,11 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true # 更新時ダウンタイム無し
 
-# app_path = '/var/www/app/fender/current' #### 変更 試しにcurrent外してみる
-app_path = '/var/www/app/fender' #### 変更 試しにcurrent外してみる
+app_path = '/var/www/app/fender/current' #### 変更 試しにcurrent外してみる
+
+working_directory "#{app_path}"
 
 app_shared_path = "#{app_path}/shared"
-working_directory "#{app_path}"
 
 # nginxと連携するための設定
 listen "#{app_shared_path}/tmp/sockets/unicorn.sock" # tmpを追加してみた-> nginx.confも修正する必要あるかも
@@ -20,6 +20,11 @@ pid "#{app_shared_path}/tmp/pids/unicorn.pid"
 # ログの出力
 stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+
+
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{ app_path }/Gemfile"
+end
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
