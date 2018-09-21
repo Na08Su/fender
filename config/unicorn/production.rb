@@ -17,6 +17,7 @@ listen "#{app_shared_path}/tmp/sockets/unicorn.sock" # tmpを追加してみた-
 stdout_path "#{app_shared_path}/log/unicorn.stdout.log"
 stderr_path "#{app_shared_path}/log/unicorn.stderr.log"
 
+#shared_path = "/var/www/app/fender/shared"
 pid "#{app_shared_path}/tmp/pids/unicorn.pid"
 
 # ログの出力
