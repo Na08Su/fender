@@ -136,3 +136,39 @@ namespace :deploy do
     invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
   end
 end
+
+
+
+
+
+
+
+unicorn:start
+      01 /home/user/.rbenv/bin/rbenv exec bundle exec unicorn -c /var/www/app/fender/current/config/unicorn/production.rb -E deployment -D
+
+    ✔ 01 user@123.4.43.5 6.596s
+      unicorn restarting...
+      02 kill -s USR2 `cat /var/www/app/fender/shared/tmp/pids/unicorn.pid`
+      02
+      02 Usage:
+      02  kill [options] <pid|name> [...]
+      02
+      02 オプション:
+      02  -a, --all              do not restrict the name-to-pid conversion to processes
+      02                         with the same uid as the present process
+      02  -s, --signal <sig>     send specified signal
+      02  -q, --queue <sig>      use sigqueue(2) rather than kill(2)
+      02  -p, --pid              print pids without signaling them
+      02  -l, --list [=<signal>] list signal names, or convert one to a name
+      02  -L, --table            list signal names and numbers
+      02
+      02  -h, --help     display this help and exit
+      02  -V, --version  output version information and exit
+      02
+      02 For more details see kill(1).
+#<Thread:0x00007f976fd0a878@/Users/username/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+	1: from /Users/username/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+/Users/username/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as user@123.4.43.5: kill exit status: 1 (SSHKit::Runner::ExecuteError)
+kill stdout: Usage:
+ kill [options] <pid|name> [...]
