@@ -14,9 +14,9 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 # rbenvの設定
 require "capistrano/rbenv"
-set :rbenv_type, :system   # rbenvをシステムにインストールした or ユーザーローカルにインストールした
+set :rbenv_type, :user  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1' # サーバで利用するrubyのバージョンを指定
-# set :rbenv_custom_path, '/home/nattu/.rbenv'
+set :rbenv_path, '/home/nattu/.rbenv'
 # リモートサーバーで$ rbenv version
 # 2.5.1 (set by /home/nattu/.rbenv/version)に基づく
 
