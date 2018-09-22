@@ -13,20 +13,20 @@ app_path = '/var/www/fender/current' #変更
 
 working_directory "#{app_path}"
 
-app_shared_path = "#{app_path}/shared"
+#app_shared_path = "#{app_path}/shared"
 
 #エラー /var/www/app/fender/current/shared/tmp/pids/unicorn.pid not writable
 
 # nginxと連携するための設定
 # リクエストを受け取る ポート番号を指定
-listen "#{app_shared_path}/tmp/sockets/unicorn.sock" # tmpを追加してみた-> nginx.confも修正する必要あるかも
+listen "#{app_path}/tmp/sockets/unicorn.sock" # DONE!!
 
-stdout_path "#{app_shared_path}/log/unicorn.stdout.log"
-stderr_path "#{app_shared_path}/log/unicorn.stderr.log"
+stdout_path "#{app_path}/log/unicorn.stdout.log" # Done
+stderr_path "#{app_path}/log/unicorn.stderr.log" # Done
 
 #shared_path = "/var/www/app/fender/shared"
 # PIDの管理ディレクトリ
-pid "#{app_shared_path}/tmp/pids/unicorn.pid"
+pid "#{app_path}/tmp/pids/unicorn.pid"
 
 
 # ログの出力パス

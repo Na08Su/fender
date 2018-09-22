@@ -1,6 +1,6 @@
 # 各種ログのディレクトリ設定
-error_log  /var/www/fender/current/log/nginx.error.log;
-access_log /var/www/fender/current/log/nginx.access.log;
+#error_log  /var/www/fender/current/log/nginx.error.log;
+#access_log /var/www/fender/current/log/nginx.access.log;
 # 処理を受け取る最大許容量
 client_max_body_size 2G;
 # 連携するunicornソケットのパス

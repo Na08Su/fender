@@ -21,11 +21,11 @@ set :bundle_binstubs, nil
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
-set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vender/bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vender/bundle public/system } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
 # shared/systemではなく、shared/public/systemが作成されるようになります
 
 # Unicorn
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+#set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
 puts "shared_path=#{shared_path}"# /var/www/fender/shared
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
@@ -61,11 +61,10 @@ namespace :deploy do
   # deployが行われる前に実行する必要がある。
   desc 'upload important files'
   task :upload do
-    # binding.pry
     on roles(:app) do |host|
       execute :mkdir, '-p', "#{shared_path}/config"
       upload!('config/database.yml',"#{shared_path}/config/database.yml")
-      upload!('config/secrets.yml',"#{shared_path}/config/secrets.yml")
+      #upload!('config/secrets.yml',"#{shared_path}/config/secrets.yml")
     end
   end
 
