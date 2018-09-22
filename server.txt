@@ -356,6 +356,9 @@ ssh fenderでは接続できる
 2. コノハとgithub接続の鍵
 
 
+設定は~/.ssh/configが優先される!!
+http://www.usupi.org/sysad/247.html
+
 
 
 

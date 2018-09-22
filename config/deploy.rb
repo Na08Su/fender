@@ -25,14 +25,7 @@ set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vender/bundle public/sy
 # shared/systemではなく、shared/public/systemが作成されるようになります
 
 # Unicorn
-#set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
-puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-puts "shared_path=#{shared_path}"# /var/www/fender/shared
-puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-
-puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-puts "current_path=#{current_path}" # /var/www/fender/current
-puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
+# set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 # リリースフォルダをいくつまで保持するか？
 set :keep_releases, 5

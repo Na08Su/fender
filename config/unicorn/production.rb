@@ -33,9 +33,7 @@ pid "#{app_path}/tmp/pids/unicorn.pid"
 stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 
-puts "-----------------------------------------------------------------"
 puts "-------------メッシメッシメッシメッシメッシメッシメッシ-----------------"
-puts "-----------------------------------------------------------------"
 
 # フォーク前に行うことを定義
 before_fork do |server, worker|
