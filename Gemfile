@@ -109,13 +109,16 @@ group :development do
   # デプロイ
 
   gem 'capistrano', require: false
-  gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv', require: false
   gem 'capistrano3-unicorn', require: false
 
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv', github: "capistrano/rbenv" , require: false
   gem 'capistrano-rails-console', require: false # 手元の環境からデプロイ先のconsoleを使う  https://qiita.com/zaru/items/42953ac86df29043fda0
-
+  # $ bundle exec cap staging rails:console
+  #これでstagingサーバのrails consoleが起動するはず。手元でリモートサーバのコンソールいじれるので、ステージングサーバの確認とか、テストデータ挿入とか超便利。
+  gem 'capistrano-safe-deploy-to'
+  gem "capistrano-scm-copy"
 end
 
 group :test do

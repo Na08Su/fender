@@ -55,8 +55,15 @@ $ ssh -i ~/.ssh/meloon nattu@118.27.9.161
 3.root禁止              # スピード維持のため、してない
 
 サーバーリスタートして、設定の読み込み
-# systemctl restart sshd
-↑CentOS 7 からは serviceではなく、systemctl コマンドを使うらしい。
+
+
+*外部ネットワークとの通信を制御するためのファイアーウォールを設定
+
+vim /etc/sysconfig/iptables
+service iptables restart
+iptables -L  #ファイアーウォールの設定確認
+
+
 さらにCentOS7ではiptablesではなく、firewalldを使用するとのこと。
 $ service iptables stop ->systemctl stop firewalld
 
@@ -100,10 +107,21 @@ Mysql2::Error::ConnectionError: Can't connect to local MySQL server through sock
 Tasks: TOP => db:create
 (See full trace by running task with --trace)"
 
+$ sudo mysql.server restart
+ ERROR! MySQL server PID file could not be found!
+Starting MySQL
+. ERROR! The server quit without updating PID file (/usr/local/var/mysql/oasis.local.pid).
+-> $ touch /usr/local/var/mysql/oasis.local.pid
+これで治る確率高い
+
 ↓以下のようにして解決
 $ whoami
 natsukisugawara
 oasis:fender natsukisugawara$ sudo chown -R natsukisugawara:wheel /usr/local/var/mysql
+
+
+ローカルのmysqlの設定確認してみる
+/usr/local/etc/my.cnf
 
 
 
@@ -315,4 +333,23 @@ unicorn:start
       # ローカルでfender/shared/tmp/pids/のディレクトリを作ってあげれば治る
       # https://blog.nagatech.work/post/ruby/78
 
-      
+
+
+
+
+
+
+
+      ### サーバーの再構築
+
+
+反省点 ->
+
+- ruby のバージョンを途中で変えた(gemのファイルなどがバラバラになった)
+- unicorn 起動できない
+-
+
+次に活かすこと
+
+- rubyは2.5.1
+- centos 6.8を使用する

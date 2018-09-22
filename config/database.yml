@@ -5,6 +5,7 @@ development:
   host: localhost
   database: fender_development
   username: root
+  socket: /tmp/mysql.sock
 
 production:
   # あとで設定
@@ -13,5 +14,5 @@ production:
   encoding: utf8
   database: fender_production
   username: root
-  password: Snsn0803+
+  password: snsn0803
   host: 118.27.9.161

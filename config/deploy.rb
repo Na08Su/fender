@@ -6,7 +6,7 @@ lock "~> 3.11.0"
 # 基本設定
 set :application, "fender"
 set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
-set :deploy_to, '/var/www/app/fender' # デプロイ先
+set :deploy_to, '/var/www/fender' # デプロイ先
 
 set :branch, 'master' # ブランチを指定できる
 # set :scm, :git
@@ -21,16 +21,17 @@ set :bundle_binstubs, nil
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vender/bundle public/system public/assets} # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+# shared/systemではなく、shared/public/systemが作成されるようになります
 
 # Unicorn
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-puts "shared_path=#{shared_path}"# /var/www/app/fender/shared
+puts "shared_path=#{shared_path}"# /var/www/fender/shared
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
 
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
-puts "current_path=#{current_path}" # /var/www/app/fender/current
+puts "current_path=#{current_path}" # /var/www/fender/current
 puts "ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ"
 
 # リリースフォルダをいくつまで保持するか？
@@ -83,7 +84,7 @@ namespace :deploy do
 
   #unicorn 再起動タスク
   desc 'Restart application'
-  #task :restart do
-    #invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
-  #end
+  task :restart do
+    invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
+  end
 end

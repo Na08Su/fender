@@ -1,3 +1,7 @@
+# TODO
+# リモートのディレクトリ設定とnginxの設定を変更したので、確認すること
+
+
 # -*- coding: utf-8 -*-
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 20
@@ -5,7 +9,7 @@ timeout 20
 # ホットデプロイをするか？
 preload_app true # 更新時ダウンタイム無し
 
-app_path = '/var/www/app/fender/current'
+app_path = '/var/www/fender/current' #変更
 
 working_directory "#{app_path}"
 
