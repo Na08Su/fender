@@ -338,10 +338,28 @@ unicorn:start
 
 
 
+1. ローカルとコノハの鍵
+
+~/.ssh/fender/meloon
+
+/ssh_config
+--------------
+Host fender
+  HostName 118.27.9.161
+  User nattu
+  Port 6183
+  IdentityFile  ~/.ssh/fender/meloon
+-------------------------------------
+
+ssh fenderでは接続できる
+
+2. コノハとgithub接続の鍵
 
 
-      ### サーバーの再構築
 
+
+
+### サーバーの再構築
 
 反省点 ->
 
@@ -352,4 +370,4 @@ unicorn:start
 次に活かすこと
 
 - rubyは2.5.1
-- centos 6.8を使用する
+- centos 6.9を使用する

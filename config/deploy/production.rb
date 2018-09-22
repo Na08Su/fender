@@ -8,7 +8,10 @@ server '118.27.9.161', user: 'nattu', roles: %w{app db web}, port: 6183
 set :ssh_options, {
   port: 6183,
   # capistranoコマンド実行者の秘密鍵
-  keys: %w('~/.ssh/fender/meloon'),
+  keys: %w('~/.ssh/0921'),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
+
+#authorized_keys = 0921.pub
+#サーバーリセットしたのに、fenderのsshでログインできている謎....(fenderの公開鍵なんだっけ.....)
