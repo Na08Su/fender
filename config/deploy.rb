@@ -8,9 +8,9 @@ set :application, "fender"
 set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
 set :deploy_to, '/var/www/fender' # デプロイ先
 
-set :rbenv_type, :system  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
+set :rbenv_type, :user  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1' # サーバで利用するrubyのバージョンを指定
-#set :rbenv_path, '/home/nattu/.rbenv'
+set :rbenv_path, '/home/nattu/.rbenv'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # リリースフォルダをいくつまで保持するか？
