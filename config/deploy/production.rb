@@ -1,7 +1,7 @@
 set :stage, :production
 set :branch, 'master' ## 必要があれば変更
 
-server '118.27.9.161', user: 'nattu', roles: %w{app db web}, port: 5467
+server '118.27.20.205', user: 'nattu', roles: %w{app db web}, port: 5467
 
 #デプロイするサーバーにsshログインする鍵の情報。
 #サーバー編で作成した鍵のパス
