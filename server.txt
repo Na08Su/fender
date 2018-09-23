@@ -374,3 +374,142 @@ http://www.usupi.org/sysad/247.html
 
 - rubyは2.5.1
 - centos 6.9を使用する
+- sshd_configの設定は後回しにする
+- ポート番号は 61618
+
+IPアドレス
+118.27.20.205
+
+- 鍵設定をリセットする ->色々とぐちゃぐちゃになってる(ローカルも)
+-
+
+https://www.tabosque.com/tech/22
+
+
+
+git ls-remote git@github.com:NatsukiSugawara/fender.git HEADでpermission denyのエラー
+神サイト！！
+https://qiita.com/sshojiro/items/60982f06c1a0ba88c160
+
+ssh-add でCould not open a connection to your authentication agentエラー
+https://qiita.com/ytheta/items/cbbd0b833c19784dfa1e
+
+
+
+
+
+
+サーバー再構築!!0922
+
+IP:
+118.27.20.205
+
+port:
+5467
+
+.ssh/known_hostsのなかに以前のIP接続記録が記載されているので、該当する行を消す
+以前の鍵も消してしまう
+
+パスワードはコノハで設定したもの
+
+# yum update
+
+文字コードの設定
+https://dotinstall.com/lessons/basic_sakura_vps/8004
+vim /etc/sysconfig/i18n で中身を日本語に変更する(詳細はdotinstall 4かいめ)
+
+
+作業ユーザーの作成
+# useradd nattu
+# passwd nattu
+# usermod -G wheel dotinstall
+# visudo
+
+ローカルから確認
+$ ssh nattu@IP
+
+
+#### 鍵認証設定 #####
+
+mac側で鍵のペアを作成
+ - 公開鍵をリモートに転送
+ - 秘密鍵は ローカルに
+
+鍵の置き場所を作成
+[nattu@118-27-20-205 ~]$ pwd
+/home/nattu
+[nattu@118-27-20-205 ~]$ mkdir ~/.ssh
+[nattu@118-27-20-205 ~]$ chmod 700 ~/.ssh
+
+
+ローカルでペアを作成
+$ ssh-keygen -t rsa -v
+
+$ ls -la .ssh
+$ chmod 600 .ssh/id_rsa.pub
+$ scp ~/.ssh/conoha3/id_rsa.pub nattu@118.27.20.205:~/.ssh/authorized_keys # 秘密鍵を転送
+$ ssh -i ~/.ssh/conoha3/id_rsa nattu@118.27.20.205 # 秘密鍵で認証ログイン
+
+
+oasis:.ssh natsukisugawara$ pwd
+/Users/natsukisugawara/.ssh
+oasis:.ssh natsukisugawara$ vim config
+```
+Host conoha3
+  Hostname 118.27.20.205
+  User nattu
+  Port 5467
+  IdentityFile ~/.ssh/conoha3/id_rsa
+```
+
+
+$ ssh conoha3
+リモートに接続できた！！
+
+
+セキュリティ向上
+
+
+$ sudo -s # root権限にする
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.org
+vim /etc/ssh/sshd_config
+
+```変更箇所
+Port YOUR_PORT_NUMBER
+PasswordAuthentication no
+PermitRootLogin no
+```
+サーバーで操作
+# vim /etc/sysconfig/iptables
+
+```
+*filter
+:INPUT    DROP    [0:0]
+:FORWARD  DROP    [0:0]
+:OUTPUT   ACCEPT  [0:0]
+:SERVICES -       [0:0]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s --limit-burst 4  -j ACCEPT
+-A INPUT -p tcp -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -j SERVICES
+-A INPUT -p udp --sport 53 -j ACCEPT
+-A INPUT -p udp --sport 123 --dport 123 -j ACCEPT
+-A SERVICES -p tcp --dport YOUR_PORT_NUMBER -j ACCEPT
+-A SERVICES -p tcp --dport 80 -j ACCEPT
+-A SERVICES -p tcp --dport 443 -j ACCEPT
+COMMIT
+
+```
+# service iptables restart
+# iptables -L
+
+
+ruby node js mysqlインストールする
+
+mysqlはドットインストール
+
+
+nginxの整備
+
+conohaサーバーで
+$ sudo mkdir -p /var/www/fender/current

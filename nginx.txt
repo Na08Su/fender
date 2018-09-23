@@ -1,41 +1,35 @@
-# 各種ログのディレクトリ設定
-#error_log  /var/www/fender/current/log/nginx.error.log;
-#access_log /var/www/fender/current/log/nginx.access.log;
-# 処理を受け取る最大許容量
-client_max_body_size 2G;
-# 連携するunicornソケットのパス
-upstream app_server {
-        server unix:/var/www/fender/current/tmp/sockets/unicorn.sock; ### 変更
+# pathはあとで変更する(とりあえずの段階)
+upstream unicorn {
+        server unix:/var/www/fender/shared/sockets/unicorn.sock;
 }
+
 
 server {
     listen       80;
-    # listen       [::]:80 default_server;
-    server_name  118.27.9.161; # 変更
+    server_name  118.27.20.205; #変更
 
-    #静的ファイルを読みに行くディレクトリ
-    root         /var/www/fender/current/public; # 変更
+    #charset koi8-r;
+    access_log  /var/log/nginx/access.log;
+    error_log   /var/log/nginx/error.log;
 
-    # Load configuration files for the default server block.
-    include /etc/nginx/default.d/*.conf;
-    # キャッシュのディレクトリ
-    try_files $uri/index.html $uri.html $uri @app;
+    root   /var/www/fender/public; # 変更
 
-    location @app {
-      # HTTP headers
+    client_max_body_size 100m;
+    try_files $uri/index.html $uri @unicorn;
+
+    location @unicorn {
+      proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
       proxy_set_header Host $http_host;
-      proxy_redirect off;
-      proxy_pass http://app_server;
+      proxy_pass http://unicorn;
     }
 
-    error_page 404 /404.html;
-        location = /404.html {
-          root /var/www/fender/current/public;
-   }
+    #error_page  404              /404.html;
 
-    error_page 500 502 503 504 /50x.html;
-        location = /500.html {
-          root /var/www/fender/current/public;
-    }
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /500.html;
+   # location = /50x.html {
+    #    root   /usr/share/nginx/html;
+    #}
 }

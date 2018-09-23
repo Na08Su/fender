@@ -8,8 +8,13 @@ set :application, "fender"
 set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
 set :deploy_to, '/var/www/fender' # デプロイ先
 
-set :branch, 'master' # ブランチを指定できる
-# set :scm, :git
+set :rbenv_type, :system  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
+set :rbenv_ruby, '2.5.1' # サーバで利用するrubyのバージョンを指定
+#set :rbenv_path, '/home/nattu/.rbenv'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
+# リリースフォルダをいくつまで保持するか？
+set :keep_releases, 5
 set :deploy_via, :remote_cache
 
 
@@ -17,18 +22,17 @@ set :log_level, :debug # capistranoの出力ログの制御
 set :pty, true # sudoを使用するのに必要
 
 # bundleインストール設定
-set :bundle_binstubs, nil
+#set :bundle_binstubs, nil
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
-set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vender/bundle public/system } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vender/bundle } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
 # shared/systemではなく、shared/public/systemが作成されるようになります
 
 # Unicorn
 # set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
-# リリースフォルダをいくつまで保持するか？
-set :keep_releases, 5
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
 
@@ -57,7 +61,7 @@ namespace :deploy do
     on roles(:app) do |host|
       execute :mkdir, '-p', "#{shared_path}/config"
       upload!('config/database.yml',"#{shared_path}/config/database.yml")
-      #upload!('config/secrets.yml',"#{shared_path}/config/secrets.yml")
+      upload!('config/secrets.yml',"#{shared_path}/config/secrets.yml")
     end
   end
 

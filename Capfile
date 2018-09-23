@@ -2,18 +2,19 @@
 # ↑capistranoの各設定詳細マニュアル
 
 # capistranoの基本動作を設定
-require "capistrano/setup"
-require "capistrano/deploy"
-
-require "capistrano/scm/git"
+require "capistrano/setup"   # ok
+require "capistrano/deploy"  # ok
+require "capistrano/scm/git" # ok
 install_plugin Capistrano::SCM::Git
 
 
-require "capistrano/rails"
-require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
+require "capistrano/rails" # ok
+require "capistrano/rails/assets" # ok
+require "capistrano/rails/migrations" #ok
 # rbenvの設定
-require "capistrano/rbenv"
+require "capistrano/rbenv" #ok
+require "capistrano/bundler"
+
 set :rbenv_type, :user  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
 set :rbenv_ruby, '2.5.1' # サーバで利用するrubyのバージョンを指定
 set :rbenv_path, '/home/nattu/.rbenv'
@@ -29,8 +30,6 @@ set :rbenv_path, '/home/nattu/.rbenv'
 #   S3_SECRET_KEY: ENV['S3_SECRET_KEY']  # TODO
 # }
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-
-require "capistrano/bundler"
 require 'capistrano3/unicorn'
 
 

@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/capistrano/rbenv.git
-  revision: b8807f3bbb3f424ac42cc8838a38822e028d0aa3
-  specs:
-    capistrano-rbenv (2.1.4)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -108,11 +100,9 @@ GEM
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-rails-console (2.3.0)
-      capistrano (>= 3.5.0, < 4.0.0)
-      sshkit-interactive (~> 0.3.0)
-    capistrano3-unicorn (0.2.1)
-      capistrano (~> 3.1, >= 3.1.0)
+    capistrano-rbenv (2.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     capybara (3.6.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -436,7 +426,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rb-readline (0.5.5)
     rbvmomi (1.13.0)
       builder (~> 3.0)
       json (>= 1.8)
@@ -476,8 +465,6 @@ GEM
     sshkit (1.17.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    sshkit-interactive (0.3.0)
-      sshkit (~> 1.12)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (0.20.0)
@@ -527,9 +514,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-rails
-  capistrano-rails-console
-  capistrano-rbenv!
-  capistrano3-unicorn
+  capistrano-rbenv
   capybara (>= 2.15)
   carrierwave
   chromedriver-helper
@@ -553,7 +538,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1)
   ransack
-  rb-readline
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
