@@ -28,7 +28,7 @@ require "capistrano/bundler"
 #   S3_SECRET_KEY: ENV['S3_SECRET_KEY']  # TODO
 # }
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-require 'capistrano3/unicorn'
+# require 'capistrano3/unicorn'
 
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
