@@ -2,7 +2,7 @@ namespace :unicorn do
   task :environment do
     # shared_path = "/var/www/fender/shared"
     # current_path = "/var/www/fender/current"
-    set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
+    set :unicorn_pid, "/var/www/fender/shared/sockets/unicorn.pid" # config/unicorn/production.rbないのpidと同じ
     set :unicorn_config, "#{current_path}/config/unicorn/production.rb"
   end
 
