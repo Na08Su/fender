@@ -14,6 +14,7 @@ require "capistrano/rails/migrations" #ok
 # rbenvの設定
 require "capistrano/rbenv" #ok
 require "capistrano/bundler"
+require "pry"
 
 
 # リモートサーバーで$ rbenv version
