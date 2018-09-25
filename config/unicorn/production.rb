@@ -18,9 +18,9 @@ working_directory "#{app_path}"
 
 # nginxと連携するための設定
 # リクエストを受け取る ポート番号を指定
-listen "/var/www/fender/shared/sockets/unicorn.sock" # DONE!!
+listen "/var/www/fender/shared/tmp/sockets/unicorn.sock" # DONE!!
 # PIDの管理ディレクトリ
-pid "/var/www/fender/shared/sockets/unicorn.pid" #
+pid "/var/www/fender/shared/tmp/pids/unicorn.pid" #
 
 stdout_path "#{app_path}/log/unicorn.log" # Done
 stderr_path "#{app_path}/log/unicorn.log" # Done

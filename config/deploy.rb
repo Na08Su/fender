@@ -26,7 +26,7 @@ set :pty, true # sudoを使用するのに必要
 
 # Shared に入るものを指定
 set :linked_files, %w{config/database.yml config/secrets.yml} # シンボリックリンクを貼るファイル ->デプロイ対象としたくないファイルを記載
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vender/bundle } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+set :linked_dirs,  %w{bin log tmp/pids tmp/sockets tmp/cache vender/bundle } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
 # shared/systemではなく、shared/public/systemが作成されるようになります
 
 # Unicorn

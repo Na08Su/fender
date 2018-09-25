@@ -1,6 +1,6 @@
 # pathはあとで変更する(とりあえずの段階)
 upstream unicorn {
-        server unix:/var/www/fender/shared/sockets/unicorn.sock;
+        server unix:/var/www/fender/shared/sockets/unicorn.sock; # TODO 変更する-> server unix:/var/www/fender/shared/tmp/sockets/unicorn.sock;
 }
 
 
