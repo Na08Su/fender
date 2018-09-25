@@ -18,12 +18,11 @@ namespace :unicorn do
   end
 
   def reload_unicorn
-    # バグる
     puts "---------------------"
-    puts ".......skipします....."
+    puts ".......reload_unicornします....."
     puts "---------------------"
 
-    execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})" # TODO
+    execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})" # ここで落ちる
   end
 
   def force_stop_unicorn
