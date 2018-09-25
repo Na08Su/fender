@@ -513,3 +513,216 @@ nginxの整備
 
 conohaサーバーで
 $ sudo mkdir -p /var/www/fender/current
+
+
+^^^^^^^^^^一旦中断 ^^^^^^^^^^^^^^^
+
+
+oasis:fender natsukisugawara$ git com -m "リベンジ"
+[master c66c114] リベンジ
+ 8 files changed, 219 insertions(+), 103 deletions(-)
+ rewrite nginx.txt (87%)
+oasis:fender natsukisugawara$ git push origin master
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (13/13), 3.58 KiB | 1.19 MiB/s, done.
+Total 13 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), completed with 9 local objects.
+To https://github.com/NatsukiSugawara/fender.git
+   25443bb..c66c114  master -> master
+oasis:fender natsukisugawara$
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+(Backtrace restricted to imported tasks)
+cap aborted!
+LoadError: cannot load such file -- capistrano3/unicorn
+/Users/natsukisugawara/Desktop/fender/Capfile:33:in `require'
+/Users/natsukisugawara/Desktop/fender/Capfile:33:in `<top (required)>'
+(See full trace by running task with --trace)
+oasis:fender natsukisugawara$
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+#<Thread:0x00007f9e41a2b570@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+	1: from /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as nattu@118.27.9.161: Connection refused - connect(2) for 118.27.9.161:5467 (SSHKit::Runner::ExecuteError)
+(Backtrace restricted to imported tasks)
+cap aborted!
+SSHKit::Runner::ExecuteError: Exception while executing as nattu@118.27.9.161: Connection refused - connect(2) for 118.27.9.161:5467
+
+
+Caused by:
+Errno::ECONNREFUSED: Connection refused - connect(2) for 118.27.9.161:5467
+
+Tasks: TOP => rbenv:validate
+(See full trace by running task with --trace)
+oasis:fender natsukisugawara$ git st
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   Capfile
+	modified:   config/deploy/production.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+oasis:fender natsukisugawara$ git st
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   Capfile
+	modified:   config/deploy/production.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+oasis:fender natsukisugawara$ git add .
+oasis:fender natsukisugawara$ git com -m "ip変更"
+[master 7f27fd9] ip変更
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+oasis:fender natsukisugawara$ git push origin master
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 536 bytes | 536.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/NatsukiSugawara/fender.git
+   c66c114..7f27fd9  master -> master
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+#<Thread:0x00007f89c7a00408@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+	1: from /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as nattu@118.27.20.205: Authentication failed for user nattu@118.27.20.205 (SSHKit::Runner::ExecuteError)
+(Backtrace restricted to imported tasks)
+cap aborted!
+SSHKit::Runner::ExecuteError: Exception while executing as nattu@118.27.20.205: Authentication failed for user nattu@118.27.20.205
+
+
+Caused by:
+Net::SSH::AuthenticationFailed: Authentication failed for user nattu@118.27.20.205
+
+Tasks: TOP => rbenv:validate
+(See full trace by running task with --trace)
+oasis:fender natsukisugawara$ ssh-add -l
+2048 SHA256:kSy+9+nXCph7K8/H3xE/c7b2GXCN+ok8IenwiW5EzZI /Users/natsukisugawara/.ssh/conoha/0921 (RSA)
+4096 SHA256:UEXgKBLpgSehaeoy5aVueD2DGUS7ZcpbQ5PnhRnqY/o conoha_second/id_rsa (RSA)
+oasis:fender natsukisugawara$ ssh-add ~/.ssh/conoha3/id_rsa
+Identity added: /Users/natsukisugawara/.ssh/conoha3/id_rsa (/Users/natsukisugawara/.ssh/conoha3/id_rsa)
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+00:00 rbenv:validate
+      WARN  rbenv: 2.5.1 is not installed or not found in /usr/local/rbenv/versions/2.5.1 on 118.27.20.205
+oasis:fender natsukisugawara$ git st
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   config/deploy.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+oasis:fender natsukisugawara$ git st
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   config/deploy.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+oasis:fender natsukisugawara$ git add config/deploy.rb
+oasis:fender natsukisugawara$ git com -m "rbenvをuserにした"
+[master abc40bf] rbenvをuserにした
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+oasis:fender natsukisugawara$ git push origin master
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 395 bytes | 395.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/NatsukiSugawara/fender.git
+   7f27fd9..abc40bf  master -> master
+oasis:fender natsukisugawara$
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+00:00 deploy:upload
+      01 mkdir -p /var/www/fender/shared/config
+      01 mkdir: ディレクトリ `/var/www/fender/shared' を作成できません: 許可がありません
+#<Thread:0x00007fb57799df70@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+	1: from /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as nattu@118.27.20.205: mkdir exit status: 1 (SSHKit::Runner::ExecuteError)
+mkdir stdout: mkdir: ディレクトリ `/var/www/fender/shared' を作成できません: 許可がありません
+mkdir stderr: Nothing written
+(Backtrace restricted to imported tasks)
+cap aborted!
+SSHKit::Runner::ExecuteError: Exception while executing as nattu@118.27.20.205: mkdir exit status: 1
+mkdir stdout: mkdir: ディレクトリ `/var/www/fender/shared' を作成できません: 許可がありません
+mkdir stderr: Nothing written
+
+
+Caused by:
+SSHKit::Command::Failed: mkdir exit status: 1
+mkdir stdout: mkdir: ディレクトリ `/var/www/fender/shared' を作成できません: 許可がありません
+mkdir stderr: Nothing written
+
+Tasks: TOP => deploy:upload
+(See full trace by running task with --trace)
+oasis:fender natsukisugawara$
+oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
+00:00 deploy:upload
+      01 mkdir -p /var/www/fender/shared/config
+    ✔ 01 nattu@118.27.20.205 0.115s
+      Uploading config/database.yml 100.0%
+      Uploading config/secrets.yml 100.0%
+oasis:fender natsukisugawara$ bundle exec cap production deploy:check
+00:00 git:wrapper
+      01 mkdir -p /tmp
+    ✔ 01 nattu@118.27.20.205 0.104s
+      Uploading /tmp/git-ssh-fender-production-natsukisugawara.sh 100.0%
+      02 chmod 700 /tmp/git-ssh-fender-production-natsukisugawara.sh
+    ✔ 02 nattu@118.27.20.205 0.110s
+00:00 git:check
+      01 git ls-remote git@github.com:NatsukiSugawara/fender.git HEAD
+      01 Warning: Permanently added the RSA host key for IP address '192.30.255.112' to the list of known hosts.
+      01 Permission denied (publickey).
+      01 fatal: The remote end hung up unexpectedly
+#<Thread:0x00007fa828365560@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
+Traceback (most recent call last):
+	1: from /Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:11:in `block (2 levels) in execute'
+/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:15:in `rescue in block (2 levels) in execute': Exception while executing as nattu@118.27.20.205: git exit status: 128 (SSHKit::Runner::ExecuteError)
+git stdout: Warning: Permanently added the RSA host key for IP address '192.30.255.112' to the list of known hosts.
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+git stderr: Nothing written
+(Backtrace restricted to imported tasks)
+cap aborted!
+SSHKit::Runner::ExecuteError: Exception while executing as nattu@118.27.20.205: git exit status: 128
+git stdout: Warning: Permanently added the RSA host key for IP address '192.30.255.112' to the list of known hosts.
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+git stderr: Nothing written
+
+
+Caused by:
+SSHKit::Command::Failed: git exit status: 128
+git stdout: Warning: Permanently added the RSA host key for IP address '192.30.255.112' to the list of known hosts.
+Permission denied (publickey).
+fatal: The remote end hung up unexpectedly
+git stderr: Nothing written
+
+Tasks: TOP => deploy:check => git:check
+(See full trace by running task with --trace)
+oasis:fender natsukisugawara$
+
+・rbenvをuserに設定
+・ローカルにssh-agent指定
+
+次は
