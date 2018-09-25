@@ -5,7 +5,8 @@ lock "~> 3.11.0"
 
 # 基本設定
 set :application, "fender"
-set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
+set :repo_url, "https://NatsukiSugawara:snsn0803@github.com/NatsukiSugawara/fender.git"
+# set :repo_url, "git@github.com:NatsukiSugawara/fender.git" # デプロイ対象のリポジトリ
 set :deploy_to, '/var/www/fender' # デプロイ先
 
 set :rbenv_type, :user  # rbenvをシステムにインストールした or ユーザーローカルにインストールした
@@ -16,7 +17,6 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 # リリースフォルダをいくつまで保持するか？
 set :keep_releases, 5
 set :deploy_via, :remote_cache
-
 
 set :log_level, :debug # capistranoの出力ログの制御
 set :pty, true # sudoを使用するのに必要
