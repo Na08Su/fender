@@ -15,10 +15,27 @@
  */
 
  /* タイトル */
+.navbar-header {
+  /* background-color: red; */
+  margin-left: 42% !important;
+}
+.navbar-brand {
+  font-size: 28px !important;
+  font-weight: bold !important;
+  font-family: AppleSDGothicNeo-Regular, AppleSDGothicNeo-SemiBold,
+AppleSDGothicNeo-Medium, AppleSDGothicNeo-Bold, AppleSDGothicNeo-Light,AppleSDGothicNeo-Thin;
+  text-decoration: none !important;
+}
 .main-title {
-  color: #696868 !important;
+  color: #e8b31c !important;
+  display: block;
+  /* margin: 0 auto; */
+  /* text-align: center; */
 }
 
+.navbar form input[type=submit], form input[type=button], form button{
+      background-image: linear-gradient(180deg, #289021, #2aa513) !important;
+}
 
  /* コンポーネント */
 
