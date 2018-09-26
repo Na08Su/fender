@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= analytics_init if Rails.env.production? %>
+
     <title>John LENNON</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

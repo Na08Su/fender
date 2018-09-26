@@ -74,6 +74,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'dotenv-rails' # 環境変数を管理する
 
+# 投稿する文字列の中にリンクがあったらリンク化する
+gem 'rails_autolink', '1.1.6'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -85,6 +88,12 @@ group :development, :test do
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem "better_errors"
   gem "binding_of_caller"
+
+  # viewファイル変更時に自動でヴラウザをロードしてくれる 作業効率化
+  gem 'guard-livereload', require: false
+
+  # パフォーマンス測定
+  gem 'rack-mini-profiler', require: false
 end
 
 group :development do
@@ -130,6 +139,8 @@ end
 group :production do
   gem 'fog', '~> 1.41.0'
   gem 'unicorn'
+
+  gem "google-analytics-rails"
 
 end
 

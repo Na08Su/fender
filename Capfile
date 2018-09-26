@@ -16,6 +16,7 @@ require "capistrano/rbenv" #ok
 require "capistrano/bundler"
 require "pry"
 
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 # リモートサーバーで$ rbenv version
 # 2.5.1 (set by /home/nattu/.rbenv/version)に基づく
@@ -30,6 +31,3 @@ require "pry"
 # }
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 # require 'capistrano3/unicorn'
-
-
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

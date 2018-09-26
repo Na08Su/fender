@@ -110,9 +110,7 @@ hr {
 }
 
 .top-text {
-  background-image: linear-gradient(to right, #ffb44e 0%, #f9a78d 51%, #f5d2a2 100%) !important;
-
-  /* background-image: linear-gradient(to right, #130e63e3 0%, #33310c 51%, #bf0843 100%) !important; */
+  background-image: linear-gradient(to right, #112944 0%, #110f1f 51%, #191d2d 100%) !important;
   text-align: right;
   padding: 5px 25px 5px 3px;
   color: white;
@@ -149,16 +147,15 @@ border-bottom: 1px solid #eee;
 
 .bg-footer2 {
  color: white;
- padding-top: 20px;
- padding-bottom: 20px;
- background-color: #c5134c !important;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ background-color: #ff1349 !important;
 }
 
 /* 縁取りされた見出し */
 .border-title {
   font-weight: 600;
   color: #171744;
-  border: 2px solid #ffd400;
+  border-left: 4px solid #dc0909;
   padding: 10px;
-  text-align: center;
 }

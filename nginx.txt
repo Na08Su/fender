@@ -1,9 +1,3 @@
-# pathはあとで変更する(とりあえずの段階)
-upstream unicorn {
-        server unix:/var/www/fender/shared/sockets/unicorn.sock; # TODO 変更する-> server unix:/var/www/fender/shared/tmp/sockets/unicorn.sock;
-}
-
-
 server {
     listen       80;
     server_name  118.27.20.205; #変更
@@ -32,4 +26,5 @@ server {
    # location = /50x.html {
     #    root   /usr/share/nginx/html;
     #}
+
 }

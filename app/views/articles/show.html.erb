@@ -16,7 +16,7 @@
       </div>
 
       <div class="article-body">
-        <%== @article.body %>
+        <%== auto_link(simple_format(@article.body), html: {target: '_blank'}) %>
       </div>
 
       <div class="show-ad">

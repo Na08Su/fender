@@ -21,7 +21,7 @@ namespace :unicorn do
     puts "---------------------"
     puts ".......reload_unicornします....."
     puts "---------------------"
-    binding.pry
+    # binding.pry
     execute :kill, "-s USR2 $(< #{fetch(:unicorn_pid)})" # ここで落ちる
     # puts execute :kill, ""
   end

@@ -1,5 +1,10 @@
 サーバーのメモ
+118.27.20.205
 
+ローカルでmysqlが起動しないとき、
+https://qiita.com/chuck0523/items/b7b849b2ee287f05f011
+$ tail -f /usr/local/var/mysql/oasis.local.err
+$ mysql.server start
 
 centosのバージョンとbento/centosのバージョンについて
 https://teratail.com/questions/62830
@@ -8,7 +13,6 @@ yum update していけば Cent OS 7.x 系の最新バージョン
 （現在は 7.3 ）になるので、どれから始めても似たようなものです。
 
 vagrant box add bento/centos-7.3  --provider virtualbox
-
 
 
 ### コマンド  ####
@@ -168,7 +172,7 @@ Tasks: TOP => environment
 ローカルに
 
 Host fender
-  HostName 118.28.9.161
+  HostName
   User hoge
   Port 6183
   IdentityFile  ~/.ssh/fender/id_rsa
@@ -520,26 +524,8 @@ $ sudo mkdir -p /var/www/fender/current
 
 oasis:fender natsukisugawara$ git com -m "リベンジ"
 [master c66c114] リベンジ
- 8 files changed, 219 insertions(+), 103 deletions(-)
- rewrite nginx.txt (87%)
-oasis:fender natsukisugawara$ git push origin master
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (12/12), done.
-Writing objects: 100% (13/13), 3.58 KiB | 1.19 MiB/s, done.
-Total 13 (delta 9), reused 0 (delta 0)
-remote: Resolving deltas: 100% (9/9), completed with 9 local objects.
-To https://github.com/NatsukiSugawara/fender.git
-   25443bb..c66c114  master -> master
-oasis:fender natsukisugawara$
-oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
-(Backtrace restricted to imported tasks)
-cap aborted!
-LoadError: cannot load such file -- capistrano3/unicorn
-/Users/natsukisugawara/Desktop/fender/Capfile:33:in `require'
-/Users/natsukisugawara/Desktop/fender/Capfile:33:in `<top (required)>'
-(See full trace by running task with --trace)
-oasis:fender natsukisugawara$
+
+
 oasis:fender natsukisugawara$ bundle exec cap production deploy:upload
 #<Thread:0x00007f9e41a2b570@/Users/natsukisugawara/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/sshkit-1.17.0/lib/sshkit/runners/parallel.rb:10 run> terminated with exception (report_on_exception is true):
 Traceback (most recent call last):
@@ -726,3 +712,23 @@ oasis:fender natsukisugawara$
 ・ローカルにssh-agent指定
 
 次は
+
+- rbenvのバージョン指定
+
+gem envで確認ご、rbenv_pathを指定することで解決した
+
+#1a73e8
+
+- githubのリポジトリを非公開にしていると、permission errorが発生する
+-> 非公開の時にはsshではなくhttpで通信する
+例) set :repo_url, "https://NatsukiSugawara:snsn0803@github.com/NatsukiSugawara/fender.git"
+
+- ファイルの拡張子を間違えていた（参考記事を頼りすぎてしまい思考停止になっていんた）
+/Capfile内の
+Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+によってtaskが走るが、hoge.capのファイル名を作成してしまっていた...
+
+- unicornのパス設定 とlinked_dirの関連を理解していなかった
+
+tmp配下はユニコーン関連のファイルが存在するが、linked_dirに含まないとエラーが発生する
+set :linked_dirs,  %w{bin log tmp/pids tmp/sockets tmp/cache vender/bundle } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
