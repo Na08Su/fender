@@ -49,6 +49,10 @@ gem 'activeadmin'  # admin画面
 # 検索
 gem 'ransack'
 
+# スマホ用 デバイス判定
+# https://github.com/jpmobile/jpmobile
+gem 'jpmobile'
+
 # タグ機能
 # https://github.com/mbleigh/acts-as-taggable-on
 # https://ruby-rails.hatenadiary.com/entry/20150225/1424858414
@@ -63,7 +67,11 @@ gem 'mini_magick'
 gem 'ckeditor'
 
 ### SEO #####
-gem "gretel"
+gem "gretel" # パンくずリスト
+
+gem 'meta-tags', :require => 'meta_tags' # TODO
+gem 'sitemap_generator' # TODO
+# https://morizyun.github.io/blog/meta-tags-sitemap-generator-rails-seo/index.html
 
 
 # Reduces boot times through caching; required in config/boot.rb

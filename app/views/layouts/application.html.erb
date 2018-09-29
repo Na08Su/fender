@@ -2,10 +2,25 @@
 <html>
   <head>
     <%= analytics_init if Rails.env.production? %>
+    <% set_meta_tags :site => 'アプリ速報スマホ版は流行や旬な話題をいち早く届けるメディアです',
+                     :description => 'アプリ速報は有用な情報をお届けするウェブサイトです。あなたにとって素敵な情報が見つかると思いますよ。今すぐチェックしよう！',
 
-    <title>John LENNON</title>
+                    :keywords => 'メディア, アプリ,流行, インスタ映え, インスタグラム, SNS,吉澤ひとみ, 大谷翔平,ハロウィン, クリスマス, 海外旅行, 高校生, 大学生 カップル, 彼女, 恋人, デートスポット, マッチング, 掲示板, ２チャンネル, LINE, FACEBOOK, TIKTOK',
+                    :open_graph => {
+                      :title => 'アプ速！',
+                      :type  => :website,
+                      :url   => '/',
+                      :image => 'http://ia.media-imdb.com/rock.jpg' # TODO: 設定する
+                   },
+                      :viewport => "width=device-width, initial-scale=0.8, minimum-scale=0.8, maximum-scale=0.8",
+                      :reverse => true %>
+
+    <title>アプリ速報！</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+
+    <!-- TODO これ必要なのか？ -->
+    <%#= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +28,7 @@
 
   <body>
     <div class="bar-top">
-      <div class="top-text">アプリ情報を3秒でお伝えしますのアプ速だよ</div>
+      <div class="top-text">話題の情報をお届けします | アプ速</div>
     </div>
     <%= render 'layouts/header'  %>
     <%= breadcrumbs :class => "pan", semantic: true %>
