@@ -49,10 +49,10 @@ namespace :deploy do
  desc 'Restart application'
   # アプリ再起動を行うタスク
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :mkdir, '-p', release_path.join('tmp')
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
+    # on roles(:app), in: :sequence, wait: 5 do
+    #   execute :mkdir, '-p', release_path.join('tmp')
+    #   execute :touch, release_path.join('tmp/restart.txt')
+    # end
   end
   # linked_files で使用するファイルをアップロードするタスク
   # deployが行われる前に実行する必要がある。
@@ -66,21 +66,21 @@ namespace :deploy do
   end
 
   # webサーバー再起動時にキャッシュを削除する
-  after :restart, :clear_cache do
-   on roles(:web), in: :groups, limit: 3, wait: 10 do
-    #Here we can do anything such as:
-    within release_path do
-      execute :rm, '-rf', release_path.join('tmp/cache')
-    end
-   end
-  end
+  # after :restart, :clear_cache do
+  #  on roles(:web), in: :groups, limit: 3, wait: 10 do
+  #   #Here we can do anything such as:
+  #   within release_path do
+  #     execute :rm, '-rf', release_path.join('tmp/cache')
+  #   end
+  #  end
+  # end
   # Flow の before, after のタイミングで上記タスクを実行
   before :started,   'deploy:upload'
   after  :finishing, 'deploy:cleanup'
 
   #unicorn 再起動タスク
   desc 'Restart application'
-  task :restart do
-    invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
-  end
+  # task :restart do
+  #   invoke 'unicorn:restart' # lib/capustrano/tasks/unicorn.cap 内処理を実行
+  # end
 end
