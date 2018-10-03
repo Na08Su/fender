@@ -17,9 +17,9 @@
 }
 
 .smt .navbar-default {
-    background-color: #ffffff;
-    border-color: #e7e7e7;
-    border-top: 12px solid #191d2d;
+  background-color: #ffffff;
+  border-color: #e7e7e7;
+  border-top: 12px solid #191d2d;
 }
 
 .smt .navbar-header {
@@ -197,11 +197,14 @@ img {
 
 // ad-footer
 .ad-square {
-  margin: 12px;
+  // margin: 12px;
   background: green;
-  padding: 15px;
-  width: 360px;
-  height: 200px;
+  // padding: 15px;
+  width: 350px;
+  height: 250px;
+  border: #eee solid 1px;
+  margin: 25px 12px 0;
+  padding: 16px 15px 20px 15px;
 }
 
 // 目次
@@ -224,4 +227,12 @@ img {
 
 .smt-main-article {
   padding: 12px;
+}
+
+
+
+/////// Footer ///////
+
+.company-info {
+  border-bottom: 2px solid #eee;
 }
