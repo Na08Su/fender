@@ -15,18 +15,44 @@
   </div>
 
   <!-- SNS -->
-  <div class="row pt10">
-    <div class="col-xs-4 pl20">
-      <a href="https://social-plugins.line.me/lineit/share?url=<%= request.url %>" target="_blank"><%= image_tag "line.png", :size => "80x75" %></a>
-      <!-- <div class="line-it-button" data-lang="ja" data-type="share-d" data-url="http://appsoku.net" style="display: none;"></div> -->
-       <!-- <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script> -->
+  <div class="row pt10 pb20">
+    <div class="col-xs-4 pl30">
+      <a class="smt-line-logo" href="https://social-plugins.line.me/lineit/share?url=<%= request.url %>" target="_blank">LINE<%#= image_tag "line.png", :size => "100x90" %></a>
     </div>
     <div class="col-xs-4">
-      <a href="https://twitter.com/share?url=<%= request.url %>&text=<%= @article.title %>" rel="nofollow" target="_blank"><%= image_tag "twitter.png", :size => "80x75" %></a>
+      <a class="smt-twitter-logo" href="https://twitter.com/share?url=<%= request.url %>&text=<%= @article.title %>" rel="nofollow" target="_blank">Twitter<%#= image_tag "twitter.png", :size => "100x90" %></a>
     </div>
-    <div class="col-xs-4 pr10">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" target="_blank"><%= image_tag "facebook.png", :size => "80x75" %></a>
+    <div class="col-xs-3 pr20">
+      <a class="smt-facebook-logo" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" target="_blank">facebook<%#= image_tag "facebook.png", :size => "100x90" %></a>
     </div>
+  </div>
+
+  <!-- あらすじ -->
+  <div class="top-desc">
+    神奈川県といえば言わずと知れた観光名所がひしめくエリア。特に江の島、鎌倉や横浜はカップル達の定番デートコースにもなっています。もちろんデートじゃなくても週末のおでかけスポットに神奈川を選ぶ機会も意外と多いはず。そんな神奈川には気軽におしゃれなペアリングの作れるお店があることをご存知ですか？神奈川でプチ旅行気分を味わいながら、お土産にリングを持ち帰るというのはどうでしょう。今回はペアリングの作れるお店をエリアごとに7選ご紹介いたします。(情報は2018年9月記事公開時点のものです。おでかけの際には必ず事前にお調べください。)
+  </div>
+
+  <div class="ad-infeed">
+    インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告
+  </div>
+
+  <div class="mokuji">
+    <h1 class="font16">このまとめ記事の目次</h1>
+    <ul>
+      <li>1. 横浜</li>
+      <li>2. 野毛</li>
+      <li>3. 伊勢佐木長者町</li>
+      <li>4. 湘南台</li>
+      <li>5. 鎌倉</li>
+    </ul>
+  </div>
+
+  <div class="smt-main-article">
+    <%== auto_link(simple_format(@article.body), html: {target: '_blank'}) %>
+  </div>
+
+  <div class="ad-square">
+    ad
   </div>
 
 

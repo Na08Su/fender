@@ -16,3 +16,7 @@ https://teratail.com/questions/103055
 
 フリーアイコン紹介記事
 https://saruwakakun.com/design/tips/icon
+
+
+paginateの最速gem pagy
+https://techracho.bpsinc.jp/hachi8833/2018_06_05/57481

@@ -17,7 +17,7 @@
 }
 
 .smt .navbar-default {
-    background-color: white;
+    background-color: #ffffff;
     border-color: #e7e7e7;
     border-top: 12px solid #191d2d;
 }
@@ -134,4 +134,94 @@ img {
 .created_at {
   color: #b5bcc8;
   font-size: 8px;
+}
+
+// SNSシェア
+.smt-line-logo {
+    width: 90px;
+    height: 50px;
+    display: inline-block;
+    background: #7cd02f;
+    border-radius: 4px;
+    color: white;
+    padding: 13px 24px;
+    margin-bottom: 4px;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.smt-facebook-logo {
+    width: 90px;
+    height: 50px;
+    display: inline-block;
+    background: #3d5e96;
+    border-radius: 4px;
+    color: white;
+    padding: 13px 14px;
+    margin-bottom: 4px;
+    text-decoration: none !important;
+    font-weight: bold;
+
+}
+.smt-twitter-logo {
+    width: 90px;
+    height: 50px;
+    display: inline-block;
+    background: #67aeeb;
+    border-radius: 4px;
+    color: white;
+    padding: 13px 21px;
+    margin-bottom: 4px;
+    margin-left: 7px;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+//
+.top-desc {
+  clear: both;
+  color: #555;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.5;
+  padding: 15px;
+  background: #f3f3f3;
+}
+
+// ad
+.ad-infeed {
+  padding: 20px 12px !important;
+  background: red;
+  height: 100px;
+}
+
+// ad-footer
+.ad-square {
+  margin: 12px;
+  background: green;
+  padding: 15px;
+  width: 360px;
+  height: 200px;
+}
+
+// 目次
+.mokuji {
+    border: #eee solid 1px;
+    margin: 25px 12px 0;
+    padding: 16px 15px 20px 15px;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.mokuji h1{
+  // font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  padding: 0 0 9px;
+}
+
+// main
+
+.smt-main-article {
+  padding: 12px;
 }

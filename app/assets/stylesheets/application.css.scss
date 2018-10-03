@@ -129,8 +129,8 @@ hr {
 }
 
 .navbar-default {
-    background-color: #ffffff;
-    border-color: #e7e7e7;
+  background-color:  !important;
+  border-color: #e7e7e7;
 }
 
 /* パンくずリスト */
@@ -157,13 +157,13 @@ border-bottom: 1px solid #eee;
  color: white;
  padding-top: 10px;
  padding-bottom: 10px;
- background-color: #ff1349 !important;
+ background-color: #eb6a7a !important;
 }
 
 /* 縁取りされた見出し */
 .border-title {
   font-weight: 600;
-  color: #171744;
-  border-left: 4px solid #dc0909;
+  color: #333;
+  border-left: 4px solid #eb6a7a;
   padding: 10px;
 }
