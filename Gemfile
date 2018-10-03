@@ -69,8 +69,8 @@ gem 'ckeditor'
 ### SEO #####
 gem "gretel" # パンくずリスト
 
-gem 'meta-tags', :require => 'meta_tags' # TODO
-gem 'sitemap_generator' # TODO
+gem 'meta-tags' # TODO
+gem 'sitemap_generator' # TODO 要設定
 # https://morizyun.github.io/blog/meta-tags-sitemap-generator-rails-seo/index.html
 
 

@@ -29,7 +29,7 @@ Rails.application.configure do
 
   #  bullet の設定
   config.after_initialize do
-    Bullet.enable = true
+    Bullet.enable = false
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
@@ -37,6 +37,14 @@ Rails.application.configure do
     Bullet.add_footer = true
     Bullet.raise = true
   end
+  # # white list
+  # Bullet.add_whitelist type: :n_plus_one_query, class_name: 'Category', association: :articles
+  # #
+  # # # 使っていないeager_loadingを許容する
+  # Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Category', association: :articles
+  # #
+  # Bullet.add_whitelist type: :counter_cache, class_name: "Category", association: :articles
+
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local

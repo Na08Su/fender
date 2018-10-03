@@ -1,5 +1,10 @@
+upstream unicorn {
+        server unix:/var/www/fender/shared/tmp/sockets/unicorn.sock;
+}
+
+
 server {
-    listen       80;
+    listen       80 default_server;
     server_name  118.27.20.205; #変更
 
     #charset koi8-r;
@@ -26,5 +31,4 @@ server {
    # location = /50x.html {
     #    root   /usr/share/nginx/html;
     #}
-
 }

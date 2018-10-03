@@ -21,7 +21,7 @@
             <p>記事1</p>
             <!-- 背景画像として扱うこともできることを考慮する -->
             <!-- <div class="eyecatch_instagram" style="background-image:url('https://www.instagram.com/p/BlncAuOAAP2/media/?size=m')"> </div> -->
-            <%= image_tag @article_last1.picture.url, :size => "320x192", class: 'main_img' if @article_last1&.picture %>
+            <%= image_tag @article_last1.picture.url, :size => "320x192", class: '' if @article_last1&.picture %>
             <h4 class="title-color"><%= @article_last1.title.truncate(30)%></h4>
             <p class="gray-text"><%== @article_last1.body.truncate(60)%></p>
             <!-- <p class="gray-text">公式ライター</p> -->
@@ -32,7 +32,7 @@
         <div class="main_background">
           <%= link_to @article_last2 do%>
             <p>記事2</p>
-            <%= image_tag @article_last2.picture.url, :size => "320x192", class: 'main_img' if @article_last2&.picture %>
+            <%= image_tag @article_last2.picture.url, :size => "320x192", class: '' if @article_last2&.picture %>
             <h4 class="title-color"><%= @article_last2.title.truncate(30) %></h4>
             <p class="gray-text"><%= @article_last2.body.truncate(60) %></p>
             <p class="gray-text">Liam gallager</p>

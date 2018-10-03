@@ -1,12 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-
-    if Rails.env == "development"
-      @text = "ATOM遅いなあああああ"
-      # @debug = @q.result.to_sql
-    end
+    # 暫定のもの　あとでカテゴリごとに最適かする
 
     @tags = ActsAsTaggableOn::Tag.most_used(30)
+
+    @new_articles = Article.limit(100).order("created_at DESC")# 新着順のリスト
+    # 人気順
 
 
     @articles = Article.all

@@ -732,3 +732,33 @@ Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 tmp配下はユニコーン関連のファイルが存在するが、linked_dirに含まないとエラーが発生する
 set :linked_dirs,  %w{bin log tmp/pids tmp/sockets tmp/cache vender/bundle } # sharedにシンボリックリンクを張るディレクトリ指定-> デプロイ対象としたくないディレクトリを記載
+
+
+
+
+デプロイの流れ
+
+css等をコンパイル
+$ rake assets:precompile RAILS_ENV=production
+
+Gitにデプロイ
+$ git add .
+$ git commit -m "deploy"
+$ git git push origin master
+
+$ bundle exec cap production deploy:upload # database.ymlをアップロードする
+$ bundle exec cap production deploy:check # deploy可能かのチェック
+$ bundle exec cap production deploy
+
+nginxを起動
+$ sudo chkconfig nginx on # 自動起動設定
+$ sudo service nginx configtest # 設定ファイルに問題がないか確認
+$ sudo service nginx restart #再起動
+
+ユニコーン起動
+bundle exec unicorn_rails -c config/unicorn/production.rb -E production
+
+
+エラーの時
+conohaサーバー内で
+$ sudo tail -f /var/log/nginx/error.log

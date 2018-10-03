@@ -1,7 +1,9 @@
 /*
- *= require_tree .
- *= require_self
- */
+*= require_self
+*= require_tree .
+*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
  /* タイトル */
 .navbar-header {
