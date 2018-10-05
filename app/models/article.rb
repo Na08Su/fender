@@ -12,15 +12,22 @@
 #
 
 class Article < ApplicationRecord
+  # pv
+  is_impressionable
+
+  # validation
   validates :title,       presence: true, length: { maximum: 40 }
   validates :body,        presence: true
   validates :category_id, presence: true
 
+  # 画像アップ
   mount_uploader :picture, PictureUploader
   validate  :picture_size # カスタムバリデーション
 
+  # アソシエーション
   belongs_to :category
 
+  # タグ
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :label
 

@@ -20,3 +20,17 @@ https://saruwakakun.com/design/tips/icon
 
 paginateの最速gem pagy
 https://techracho.bpsinc.jp/hachi8833/2018_06_05/57481
+
+ドメイン設定
+https://server-network-note.net/2017/11/aws-route53_dns_set/
+https://hombre-nuevo.com/vps/vps0009/
+
+
+PV計上
+1. gemを使う方法
+https://qiita.com/ryouzi/items/727063547da2432beda9
+-> DBアクセスするためパフォーマンス悪いが手軽
+
+2. redisの方法
+cashサーバー借りないといけないからめんどくさい...
+早いが、扱いが難しい

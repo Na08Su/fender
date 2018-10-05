@@ -5,6 +5,7 @@
   <div class="img-wrapper">
     <%= image_tag @article.picture.url, width: "100%", height: "300px" %>
   </div>
+
   <!-- 日時 -->
   <div class="created_at pl10 pt10">
     記事作成日: <%= @article.created_at.strftime("%Y年 %m月 %d日") %>
@@ -12,6 +13,10 @@
   <!-- タイトル -->
   <div class="smt-show-title pl10 pt10 pr10">
     <h1 class="font26"><%= @article.title %></h1>
+  </div>
+
+  <div class="show-pv right pl10 pt10 pr20">
+    <p><%= @article.impressionist_count %>pv</p>
   </div>
 
   <!-- SNS -->

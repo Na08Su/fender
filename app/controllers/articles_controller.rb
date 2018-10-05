@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # pvを取る
+  # impressionist :actions=> [:show]
+
   def index
     # 暫定のもの　あとでカテゴリごとに最適かする
 
@@ -23,11 +26,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
+
     @article = Article.find(params[:id])
     @related_article = Article.all
 
     @osusume_articles = Article.last(5) # おすすめのロジック
     @ranking_articles = Article.last(5) # ランキングのロジック
+
+    # 1記事に対して何人が見たのか
+    impressionist(@article, nil, unique: [:session_hash])
 
   end
 

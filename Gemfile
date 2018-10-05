@@ -85,6 +85,10 @@ gem 'dotenv-rails' # 環境変数を管理する
 # 投稿する文字列の中にリンクがあったらリンク化する
 gem 'rails_autolink', '1.1.6'
 
+# PV計上
+gem 'impressionist'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

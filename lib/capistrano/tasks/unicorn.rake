@@ -9,7 +9,8 @@ namespace :unicorn do
   def start_unicorn
     # フォルダが存在した場合のみ実行する
     within current_path do
-    execute :bundle, :exec, :unicorn, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
+    # unicornファイルがあるところを指定 
+    execute :bundle, :exec, :unicorn, "-c config/unicorn/production.rb -E production"
     end
   end
 
