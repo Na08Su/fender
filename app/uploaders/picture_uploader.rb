@@ -14,11 +14,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [320, 192]
 
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  # if Rails.env.production?
+  #   storage :fog
+  # else
+  #   storage :file
+  # end
   # storage :file
   # storage :fog
 
@@ -30,7 +30,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
 
   def default_url
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.jpg"].compact.join('_'))
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

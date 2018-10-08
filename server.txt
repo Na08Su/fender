@@ -735,7 +735,7 @@ set :linked_dirs,  %w{bin log tmp/pids tmp/sockets tmp/cache vender/bundle } # s
 
 
 
-
+------------------------------------------------------------------------------------------
 デプロイの流れ
 
 css等をコンパイル
@@ -762,3 +762,15 @@ bundle exec unicorn_rails -c config/unicorn/production.rb -E production
 エラーの時
 conohaサーバー内で
 $ sudo tail -f /var/log/nginx/error.log
+
+------------------------------------------------------------------------------------------
+
+
+
+$ rails s 起動時のmysqlエラー
+
+1.  /tmp/mysql.sockを削除する
+2.  $ mysql.server start
+
+Can't connect to local MySQL server through socket '/tmp/mysql.sock'
+https://qiita.com/PoohSunny/items/4df890dde4879c2cd29b

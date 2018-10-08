@@ -2,13 +2,14 @@
 #
 # Table name: articles
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  body        :text
+#  id          :bigint(8)        not null, primary key
+#  title       :string(255)
+#  body        :text(65535)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  picture     :string
-#  category_id :integer
+#  picture     :string(255)
+#  category_id :bigint(8)
+#  desc        :text(65535)
 #
 
 class Article < ApplicationRecord
@@ -36,8 +37,8 @@ class Article < ApplicationRecord
 
     # アップロードされた画像のサイズをバリデーションする
     def picture_size
-      if picture.size > 2.megabytes
-        errors.add(:picture, "2MB以下にしてください(容量設定可能)")
+      if picture.size > 1.megabytes
+        errors.add(:picture, "1MB以下にしてください(容量設定可能)")
       end
     end
 
