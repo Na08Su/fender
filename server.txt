@@ -758,9 +758,13 @@ $ sudo service nginx restart #再起動
 bundle exec unicorn_rails -c config/unicorn/production.rb -E production
 
 
-エラーの時
+nginxエラーの時
 conohaサーバー内で
 $ sudo tail -f /var/log/nginx/error.log
+
+railsのエラーログ
+$ /var/www/fender/current/log/production.log
+
 
 ------------------------------------------------------------------------------------------
 
