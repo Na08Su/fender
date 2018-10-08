@@ -98,6 +98,12 @@ AppleSDGothicNeo-Medium, AppleSDGothicNeo-Bold, AppleSDGothicNeo-Light,AppleSDGo
   border-left: solid 1px #eee;
 }
 
+h1, .h1, h2, .h2, h3, .h3 {
+    // margin-top: 0px !important;
+    // margin-bottom: 0px !important;
+    line-height: 1.4 !important;
+}
+
 /* 余白を打ち消す */
 hr {
   margin: 0px !important;
