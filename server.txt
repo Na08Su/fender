@@ -299,8 +299,7 @@ ArgumentError: Missing required arguments: aws_access_key_id, aws_secret_access_
 
 
 再起動したあととかだと、cap productionができなくなる
-$ ssh-add ~/.ssh/fender/meloon
-
+$ ssh-add ~/.ssh/conoha3/id_rsa.pub
 
 
 unicornエラー
