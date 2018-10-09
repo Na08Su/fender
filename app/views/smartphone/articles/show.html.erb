@@ -14,9 +14,15 @@
   <div class="smt-show-title pl10 pt10 pr10">
     <h1 class="font26"><%= @article.title %></h1>
   </div>
+  <div class="keywords pt10 pl20 pr20 none-style">
+    <% @article.label_list.each do |tag| %>
+      <%#= tag %>
+      <span class="keyword"><%= link_to tag, related_tags_path(tag), class: "tag-link" %>&nbsp;<%#= @article.label.taggings_count %></span>
+    <% end %>
+  </div>
 
   <div class="show-pv right pl10 pt10 pr20">
-    <p><%= @article.impressionist_count %>pv</p>
+    <p><%= @article.impressionist_count %>views</p>
   </div>
 
   <!-- SNS -->
@@ -39,19 +45,19 @@
   </div>
 
   <div class="ad-infeed">
-    インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告インフィード広告
+    インフィード広告
   </div>
 
-  <div class="mokuji">
+  <!-- <div class="mokuji">
     <h1 class="font16">このまとめ記事の目次</h1>
-    <!-- <ul>
+    <ul>
       <li>1. 横浜</li>
       <li>2. 野毛</li>
       <li>3. 伊勢佐木長者町</li>
       <li>4. 湘南台</li>
       <li>5. 鎌倉</li>
-    </ul> -->
-  </div>
+    </ul>
+  </div> -->
 
   <div class="smt-main-article">
     <%== auto_link(simple_format(@article.body), html: {target: '_blank'}) %>

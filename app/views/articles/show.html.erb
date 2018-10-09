@@ -11,6 +11,13 @@
         <h1><%= @article.title %></h1>
       </div>
 
+      <div class="pc-show-tags pt20">
+        <% @article.label_list.each do |tag| %>
+          <span class="popular_tag"><%= link_to tag, related_tags_path(tag), class: "tag-link" %>&nbsp;<%#= tag.taggings_count %></span>
+        <% end %>
+      </div>
+
+
       <div class="show-ad">
         広告
       </div>
