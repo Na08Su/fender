@@ -8,10 +8,16 @@ class ArticlesController < ApplicationController
     @tags = ActsAsTaggableOn::Tag.most_used(30)
 
     @new_articles = Article.limit(100).order("created_at DESC")# 新着順のリスト
-    # 人気順
 
-
+    # ピックアップ
     @articles = Article.all
+
+    # pv順 現在はシンプルに合計pv数のみで抽出している
+    @pv_articles = Article.order('impressions_count DESC').take(10)
+      #日付で絞り込むなら以下のようにする
+      # .where("? <= created_at", Time.now.yesterday)
+      # .where("created_at <= ?", Time.now)
+
     @article_last1  = Article.last
     @article_last2 = Article.last(2)[0]
 
@@ -19,7 +25,7 @@ class ArticlesController < ApplicationController
 
 
     @osusume_articles = Article.last(5) # おすすめのロジック
-    @ranking_articles = Article.last(5) # ランキングのロジック
+    # @ranking_articles = Article.last(5) # ランキングのロジック
 
     @categories = Category.all
 

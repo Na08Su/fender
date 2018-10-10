@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_114112) do
+ActiveRecord::Schema.define(version: 2018_10_10_101012) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_10_08_114112) do
     t.string "picture"
     t.bigint "category_id"
     t.text "desc"
+    t.integer "impressions_count", default: 0
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 

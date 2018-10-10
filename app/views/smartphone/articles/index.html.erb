@@ -32,7 +32,7 @@
                 <b class="list-title"><%= article.title.truncate(35) %></b>
                 <div class="row pt30">
                   <div class="col-xs-3 pv-text">
-                    <%= article.impressionist_count %>pv
+                    <%= article.impressionist_count %>views
                   </div>
                   <div class="col-xs-6">
 
@@ -48,7 +48,7 @@
       </div>
       <div id="tab02">
         <!-- あとで人気ロジック作成する -->
-        <% @articles.each do |article| %>
+        <% @pv_articles.each do |article| %>
           <%= link_to article_path(article) do %>
             <li class="row list">
               <div class="col-xs-3 left-img pl30">
@@ -58,7 +58,7 @@
                 <b class="list-title"><%= article.title.truncate(35) %></b>
                 <div class="row pt30">
                   <div class="col-xs-3 pv-text">
-                    pv数
+                    <%= article.impressionist_count %>views
                   </div>
                   <div class="col-xs-6">
 
