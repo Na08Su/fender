@@ -36,3 +36,7 @@ https://qiita.com/ryouzi/items/727063547da2432beda9
 2. redisの方法
 cashサーバー借りないといけないからめんどくさい...
 早いが、扱いが難しい
+
+
+remote: true
+http://song-of-life.hatenablog.com/entry/2017/09/30/234356
