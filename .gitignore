@@ -35,3 +35,6 @@ config/secrets.yml
 secret.txt
 #画像
 /public/uploads
+
+public/sitemap.xml
+public/sitemap.xml.gz
