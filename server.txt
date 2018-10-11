@@ -749,12 +749,19 @@ $ bundle exec cap production deploy:upload # database.ymlをアップロード�
 $ bundle exec cap production deploy:check # deploy可能かのチェック
 $ bundle exec cap production deploy
 
+
 nginxを起動
 $ sudo chkconfig nginx on # 自動起動設定
 $ sudo service nginx configtest # 設定ファイルに問題がないか確認
 $ sudo service nginx restart #再起動
 
+
+$ cd /var/www/fender/current/
+
+sitemap更新
+$ bundle exec rake sitemap:refresh RAILS_ENV=production
 ユニコーン起動
+
 bundle exec unicorn_rails -c config/unicorn/production.rb -E production
 
 

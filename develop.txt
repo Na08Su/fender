@@ -40,3 +40,6 @@ cashサーバー借りないといけないからめんどくさい...
 
 remote: true
 http://song-of-life.hatenablog.com/entry/2017/09/30/234356
+
+dbをdump
+https://qiita.com/mogya/items/88cc46f77c5430c96ced

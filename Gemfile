@@ -90,9 +90,14 @@ gem 'impressionist'
 
 # SEO
 # https://qiita.com/tackeyy/items/077f7247309665592112
+# http://vdeep.net/rubyonrails-sitemap-generator
 gem 'sitemap_generator'
 # 自動処理
 gem 'whenever', require: false
+
+# DBをdumpできる
+# https://qiita.com/mogya/items/88cc46f77c5430c96ced
+gem 'yaml_db'
 
 
 
