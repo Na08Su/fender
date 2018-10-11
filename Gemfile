@@ -88,6 +88,12 @@ gem 'rails_autolink', '1.1.6'
 # PV計上
 gem 'impressionist'
 
+# SEO
+# https://qiita.com/tackeyy/items/077f7247309665592112
+gem 'sitemap_generator'
+# 自動処理
+gem 'whenever', require: false
+
 
 
 group :development, :test do

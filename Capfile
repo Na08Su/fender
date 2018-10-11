@@ -16,6 +16,8 @@ require "capistrano/rbenv" #ok
 require "capistrano/bundler"
 require "pry"
 
+require 'whenever/capistrano'
+
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 # リモートサーバーで$ rbenv version
